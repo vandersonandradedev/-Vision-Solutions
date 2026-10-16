@@ -25,7 +25,7 @@ const PRODUCTS = [
     stack: ["Next.js 15", "NestJS", "Prisma", "PostgreSQL", "Redis", "BullMQ", "Electron"],
     image: "/images/torqueos-preview.jpg" as string | undefined,
     metrics: [
-      { label: "Ordens de Serviço", value: "18 Ativas", delta: "Tempo real" },
+      { label: "Ordens de Serviço", value: "Fluxo Integrado", delta: "Tempo real" },
       { label: "Estoque de Peças", value: "SKUs & Insumos", delta: "Alerta mínimo" },
       { label: "Aplicação", value: "Web & Desktop", delta: "Electron" },
     ],
@@ -87,7 +87,7 @@ const PRODUCTS = [
     stack: ["Next.js 15", "NestJS", "PostgreSQL", "Prisma", "Redis", "BullMQ"],
     image: "/images/retailos-preview.jpg",
     metrics: [
-      { label: "Vendas do Dia", value: "R$ 12.350", delta: "PDV Ativo" },
+      { label: "Vendas do Dia", value: "R$ 12.350", delta: "Frente Ágil" },
       { label: "Estoque", value: "1.250 Itens", delta: "Grade & FEFO" },
       { label: "Frente de Caixa", value: "Web & Mobile", delta: "PDV Móvel" },
     ],
@@ -272,33 +272,6 @@ function InteractiveImagePreview({
 function ProductPanel({ product }: { product: Product }) {
   return (
     <div className="rounded-xl bg-[#171A21] border border-white/[0.07] overflow-hidden shadow-2xl transition-all duration-300">
-      {/* Top Application Bar */}
-      <div className="flex items-center justify-between px-4 sm:px-5 py-3 border-b border-white/[0.06] bg-[#14171F]">
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1.5" aria-hidden="true">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]/80" />
-            <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]/80" />
-            <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]/80" />
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-[13px] font-medium text-white/90 tracking-[-0.01em]">
-              {product.name}
-            </span>
-            <span className="text-white/20 text-[11px] hidden sm:inline">·</span>
-            <span className="text-[12px] text-white/40 hidden sm:inline font-normal">
-              Demonstração Interativa
-            </span>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1.5 text-[11px] text-white/50 font-normal">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/90 animate-pulse" />
-            <span>Ativo</span>
-          </div>
-        </div>
-      </div>
-
       {/* Metrics Row — 3 Key Indicators */}
       <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/[0.06] border-b border-white/[0.06] bg-[#141720]">
         {product.metrics.map((m) => (

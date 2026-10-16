@@ -50,7 +50,7 @@ export function Footer() {
               {/* Status Indicator (visible on mobile in top header) */}
               <div className="inline-flex sm:hidden items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.07]">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span className="text-[10px] text-white/60">Operação Ativa</span>
+                <span className="text-[10px] text-white/60">Sistemas em Operação</span>
               </div>
             </div>
 
