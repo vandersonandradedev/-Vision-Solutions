@@ -265,14 +265,6 @@ function InteractiveImagePreview({
       {/* Subtle edge fade overlays for cinematic framing */}
       <div className="absolute inset-y-0 left-0 w-6 sm:w-12 bg-gradient-to-r from-[#0B0D13] to-transparent pointer-events-none opacity-40 sm:opacity-70" />
       <div className="absolute inset-y-0 right-0 w-6 sm:w-12 bg-gradient-to-l from-[#0B0D13] to-transparent pointer-events-none opacity-40 sm:opacity-70" />
-
-      {/* Discreet Interactive Pill Badge */}
-      <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 flex items-center gap-2 pointer-events-none">
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/10 text-[10.5px] sm:text-[11px] font-mono text-white/70 shadow-lg">
-          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-          <span>Scroll animado · Nitidez 1:1</span>
-        </span>
-      </div>
     </div>
   );
 }
