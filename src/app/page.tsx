@@ -23,11 +23,11 @@ const PRODUCTS = [
     description:
       "Multi-empresa, com Ordens de Serviço, controle de estoque de peças, financeiro integrado e app desktop Electron para uso sem navegador nos balcões.",
     stack: ["Next.js 15", "NestJS", "Prisma", "PostgreSQL", "Redis", "BullMQ", "Electron"],
-    image: undefined as string | undefined,
+    image: "/images/torqueos-preview.jpg",
     metrics: [
-      { label: "Módulos", value: "OS & Estoque", delta: "Core" },
+      { label: "Ordens de Serviço", value: "18 Ativas", delta: "Tempo real" },
+      { label: "Estoque de Peças", value: "SKUs & Insumos", delta: "Alerta mínimo" },
       { label: "Aplicação", value: "Web & Desktop", delta: "Electron" },
-      { label: "Arquitetura", value: "Multi-empresa", delta: "NestJS" },
     ],
     tableHeaders: ["Módulo", "Operação", "Recurso", "Status", "Tipo"],
     tableRows: [
@@ -157,7 +157,7 @@ const ECOSYSTEM = [
     stack: ["Next.js 15", "NestJS", "Prisma", "PostgreSQL", "Electron"],
     accent: "text-blue-400",
     accentBg: "bg-blue-500/10 border-blue-500/20",
-    image: undefined as string | undefined,
+    image: "/images/torqueos-preview.jpg",
   },
   {
     id: "barbercrm",
