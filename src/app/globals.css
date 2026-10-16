@@ -29,8 +29,8 @@ html {
 }
 
 body {
-  background-color: #111520;
-  color: #f1f5f9;
+  background-color: #08090D;
+  color: #E7EAF0;
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -38,13 +38,13 @@ body {
 
 /* Visible keyboard focus everywhere, no removal of outlines */
 :focus-visible {
-  outline: 2px solid #38bdf8;
+  outline: 2px solid #8B5CF6;
   outline-offset: 3px;
   border-radius: 4px;
 }
 
 ::selection {
-  background-color: rgba(59, 130, 246, 0.4);
+  background-color: rgba(124, 58, 237, 0.35);
   color: #ffffff;
 }
 
@@ -54,14 +54,14 @@ body {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #111520;
+  background: #08090D;
 }
 ::-webkit-scrollbar-thumb {
-  background: #252e42;
+  background: #1B212F;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #333f59;
+  background: #283247;
 }
 
 /* Utility: numeric/technical text */

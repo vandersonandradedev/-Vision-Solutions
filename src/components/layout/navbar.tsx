@@ -34,7 +34,7 @@ export function Navbar() {
     <header
       className={`sticky top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#111520]/90 backdrop-blur-2xl border-b border-white/[0.08]"
+          ? "bg-[#08090D]/90 backdrop-blur-2xl border-b border-white/[0.08]"
           : "bg-transparent border-b border-transparent"
       }`}
     >
@@ -83,7 +83,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center">
             <Link
               href="/contato"
-              className="group inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-white text-[#08090D] text-[12px] font-semibold tracking-[-0.01em] hover:bg-blue-500 hover:text-white transition-all duration-300"
+              className="group inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary hover:bg-primary-dim text-white text-[12px] font-semibold tracking-[-0.01em] transition-all duration-300 shadow-sm"
             >
               Falar com a Vision
               <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
@@ -109,7 +109,7 @@ export function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="md:hidden overflow-hidden border-t border-white/[0.08] bg-[#111520]/98 backdrop-blur-2xl"
+            className="md:hidden overflow-hidden border-t border-white/[0.08] bg-[#08090D]/98 backdrop-blur-2xl"
           >
             <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1">
               {NAV_LINKS.map((link, i) => {

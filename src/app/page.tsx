@@ -275,7 +275,7 @@ export default function HomePage() {
   const currentProduct = PRODUCTS[activeProduct] ?? PRODUCTS[0]!;
 
   return (
-    <div className="min-h-screen bg-[#111520] text-white selection:bg-blue-500/30 selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#08090D] text-white selection:bg-primary/30 selection:text-white overflow-x-hidden">
 
       {/* ═══════════════════════════════════════════════════════
           1. HERO — Experience
@@ -283,7 +283,7 @@ export default function HomePage() {
       <section className="relative pt-20 sm:pt-28 pb-20 px-6">
         {/* Architectural grid */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-50"
+          className="absolute inset-0 pointer-events-none opacity-40"
           style={{
             backgroundImage:
               "linear-gradient(to right,rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,0.03) 1px,transparent 1px)",
@@ -291,8 +291,8 @@ export default function HomePage() {
           }}
         />
         {/* Identity gradient — directional light */}
-        <div className="absolute top-0 left-1/3 w-[600px] h-[350px] bg-gradient-to-br from-blue-600/[0.08] via-transparent to-transparent pointer-events-none" />
-        <div className="absolute top-40 right-1/4 w-[450px] h-[280px] bg-gradient-to-bl from-violet-600/[0.06] via-transparent to-transparent pointer-events-none" />
+        <div className="absolute top-0 left-1/3 w-[600px] h-[350px] bg-gradient-to-br from-primary/[0.07] via-transparent to-transparent pointer-events-none" />
+        <div className="absolute top-40 right-1/4 w-[450px] h-[280px] bg-gradient-to-bl from-violet/[0.05] via-transparent to-transparent pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative">
 
@@ -309,7 +309,7 @@ export default function HomePage() {
                 className="flex items-center gap-3"
               >
                 <span className="inline-flex items-center gap-2 text-[11px] font-mono text-white/40 uppercase tracking-[0.2em] font-medium">
-                  <span className="w-5 h-px bg-blue-500/60" />
+                  <span className="w-5 h-px bg-primary/60" />
                   Software House &amp; SaaS Studio
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25">
@@ -351,7 +351,7 @@ export default function HomePage() {
               >
                 <Link
                   href="/produtos"
-                  className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 text-white text-[13px] font-semibold tracking-[-0.01em] hover:bg-blue-500 transition-all duration-300 shadow-md"
+                  className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary hover:bg-primary-dim text-white text-[13px] font-semibold tracking-[-0.01em] transition-all duration-300 shadow-sm"
                 >
                   Ver nossos produtos
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
@@ -620,6 +620,7 @@ export default function HomePage() {
                   <div className="sm:col-span-5 relative flex items-center justify-center">
                     <div className="relative w-full aspect-[4/3] rounded-xl bg-[#111522] border border-white/[0.12] p-3 shadow-2xl transform group-hover:scale-[1.03] group-hover:-translate-y-1.5 group-hover:rotate-0 -rotate-1 transition-all duration-500 overflow-hidden flex flex-col justify-between">
                       {p.image ? (
+                        // eslint-disable-next-line @next/next/no-img-element
                         <img src={p.image} alt={p.name} className="w-full h-full object-cover rounded-lg border border-white/10" />
                       ) : (
                         /* Styled Floating SaaS Mini Mockup */
@@ -825,7 +826,7 @@ export default function HomePage() {
                 <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
                   <Link
                     href="/contato"
-                    className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white text-[14px] font-semibold tracking-[-0.01em] hover:bg-blue-500 transition-all duration-300 shadow-md"
+                    className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary hover:bg-primary-dim text-white text-[14px] font-semibold tracking-[-0.01em] transition-all duration-300 shadow-sm"
                   >
                     Falar com a Vision
                     <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
