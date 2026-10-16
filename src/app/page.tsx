@@ -213,68 +213,85 @@ const PRINCIPLES = [
 
 function ProductPanel({ product }: { product: Product }) {
   return (
-    <div className="rounded-xl bg-[#161C2B] border border-white/[0.1] overflow-hidden shadow-2xl">
-      {/* Terminal Header */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.08] bg-[#1A2234]">
-        <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
-          <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
-          <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
+    <div className="rounded-xl bg-[#171A21] border border-white/[0.07] overflow-hidden shadow-xl transition-all duration-300">
+      {/* Top Application Bar */}
+      <div className="flex items-center justify-between px-4 sm:px-5 py-3 border-b border-white/[0.06] bg-[#14171F]">
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5" aria-hidden="true">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]/80" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]/80" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]/80" />
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-[13px] font-medium text-white/90 tracking-[-0.01em]">
+              {product.name}
+            </span>
+            <span className="text-white/20 text-[11px] hidden sm:inline">·</span>
+            <span className="text-[12px] text-white/40 hidden sm:inline font-normal">
+              Demonstração interativa
+            </span>
+          </div>
         </div>
-        <span className="text-[11px] text-white/50 font-mono">{product.name} — Demonstração Ativa</span>
-        <span className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400">
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
-          </span>
-          online
-        </span>
+
+        {/* Discreet Status Indicator */}
+        <div className="flex items-center gap-1.5 text-[11px] text-white/50 font-normal">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/90" />
+          <span>Ativo</span>
+        </div>
       </div>
 
-      {/* Metrics */}
-      <div className="grid grid-cols-3 divide-x divide-white/[0.08] border-b border-white/[0.08] bg-[#131826]">
+      {/* Metrics Row — 3 Key Indicators */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/[0.06] border-b border-white/[0.06] bg-[#141720]">
         {product.metrics.map((m) => (
-          <div key={m.label} className="px-4 py-3">
-            <div className="text-[10px] text-white/45 font-mono uppercase tracking-wider">{m.label}</div>
-            <div className="flex items-baseline gap-2 mt-0.5">
-              <span className="text-[15px] font-bold text-white font-mono tracking-tight">{m.value}</span>
-              <span className="text-[10px] text-emerald-400 font-mono font-medium">{m.delta}</span>
-            </div>
+          <div key={m.label} className="px-4 sm:px-5 py-3.5 flex flex-col justify-center">
+            <span className="text-[11px] text-white/45 font-medium tracking-normal">
+              {m.label}
+            </span>
+            <span className="text-[15px] sm:text-[16px] font-semibold text-white tracking-tight mt-1">
+              {m.value}
+            </span>
+            <span className="text-[11px] sm:text-[12px] text-white/40 mt-0.5 font-normal">
+              {m.delta}
+            </span>
           </div>
         ))}
       </div>
 
-      {/* Content: Image or Table */}
+      {/* Content: Image Preview or Data Table */}
       {product.image ? (
-        <div className="relative aspect-[16/9] w-full bg-[#0F131E] overflow-hidden group">
+        <div className="relative aspect-[16/9] w-full bg-[#111318] overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={product.image}
             alt={`${product.name} Preview`}
-            className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
+            className="w-full h-full object-cover object-center"
           />
         </div>
       ) : (
-        /* Table */
-        <div className="overflow-x-auto bg-[#161C2B]">
-          <table className="w-full text-[11px] font-mono">
+        /* Data Table Fallback */
+        <div className="overflow-x-auto bg-[#171A21]">
+          <table className="w-full text-[12px]">
             <thead>
-              <tr className="border-b border-white/[0.08] bg-[#131826]/50">
+              <tr className="border-b border-white/[0.06] bg-[#14171F]">
                 {product.tableHeaders.map((h) => (
-                  <th key={h} className="px-4 py-2.5 text-left text-[10px] text-white/40 uppercase tracking-wider font-medium">{h}</th>
+                  <th key={h} className="px-4 sm:px-5 py-3 text-left text-[11px] text-white/40 font-medium tracking-normal">
+                    {h}
+                  </th>
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/[0.05]">
+            <tbody className="divide-y divide-white/[0.04]">
               {product.tableRows.map((row, i) => (
-                <tr key={i} className="hover:bg-white/[0.04] transition-colors duration-200">
-                  <td className="px-4 py-2.5 text-white/50">{row.id}</td>
-                  <td className="px-4 py-2.5 text-white/90 font-medium">{row.col2}</td>
-                  <td className="px-4 py-2.5 text-white/55">{row.col3}</td>
-                  <td className="px-4 py-2.5">
-                    <span className={`px-2 py-0.5 rounded border text-[10px] ${STATUS_COLORS[row.statusColor] ?? ""}`}>{row.status}</span>
+                <tr key={i} className="hover:bg-white/[0.02] transition-colors duration-150">
+                  <td className="px-4 sm:px-5 py-3 font-mono text-[11px] text-white/40">{row.id}</td>
+                  <td className="px-4 sm:px-5 py-3 text-white/90 font-medium">{row.col2}</td>
+                  <td className="px-4 sm:px-5 py-3 text-white/60">{row.col3}</td>
+                  <td className="px-4 sm:px-5 py-3">
+                    <span className={`px-2 py-0.5 rounded text-[10px] font-medium border ${STATUS_COLORS[row.statusColor] ?? ""}`}>
+                      {row.status}
+                    </span>
                   </td>
-                  <td className="px-4 py-2.5 text-white/70">{row.col5}</td>
+                  <td className="px-4 sm:px-5 py-3 text-white/70">{row.col5}</td>
                 </tr>
               ))}
             </tbody>
@@ -302,11 +319,11 @@ function ProductShowcase({
         <FadeIn delay={0.1}>
           <div className="flex items-center gap-3">
             <div className={`w-9 h-9 rounded-lg ${accentColor.replace("text-", "bg-").replace("400", "500/15")} border ${accentColor.replace("text-", "border-").replace("400", "500/30")} flex items-center justify-center`}>
-              <span className={`${accentColor} font-black font-mono text-xs`}>{accentInitial}</span>
+              <span className={`${accentColor} font-bold text-xs`}>{accentInitial}</span>
             </div>
             <div>
               <h3 className="text-[18px] font-bold text-white tracking-[-0.02em]">{product.name}</h3>
-              <span className={`text-[11px] ${accentColor} font-mono font-medium`}>{product.category}</span>
+              <span className={`text-[12px] ${accentColor} font-medium`}>{product.category}</span>
             </div>
           </div>
         </FadeIn>
@@ -318,15 +335,15 @@ function ProductShowcase({
         <FadeIn delay={0.3}>
           <div className="flex flex-wrap gap-1.5">
             {product.stack.map((t) => (
-              <span key={t} className="px-2.5 py-0.5 rounded text-[10px] font-mono text-white/50 bg-white/[0.05] border border-white/[0.09]">{t}</span>
+              <span key={t} className="px-2.5 py-1 rounded-md text-[11px] text-white/55 bg-white/[0.04] border border-white/[0.08]">{t}</span>
             ))}
           </div>
         </FadeIn>
 
         <FadeIn delay={0.4}>
-          <div className="pt-2 space-y-2 border-t border-white/[0.08]">
+          <div className="pt-2 space-y-2.5 border-t border-white/[0.08]">
             {product.features.map((f) => (
-              <div key={f} className="flex items-start gap-2.5 text-[13px] text-white/60">
+              <div key={f} className="flex items-start gap-2.5 text-[13px] text-white/65">
                 <span className={`w-1.5 h-1.5 rounded-full ${accentColor.replace("text-", "bg-").replace("400", "400/80")} shrink-0 mt-1.5`} />
                 {f}
               </div>
@@ -483,7 +500,7 @@ export default function HomePage() {
             className="space-y-4"
           >
             {/* Tabs */}
-            <div className="flex items-center gap-1 bg-[#161C2B] rounded-lg p-1 w-fit border border-white/[0.09]">
+            <div className="flex flex-wrap items-center gap-1 bg-[#14171F] rounded-lg p-1 w-fit border border-white/[0.07]">
               {PRODUCTS.map((p, i) => (
                 <button
                   key={p.id}
