@@ -140,7 +140,7 @@ const PRINCIPLES = [
   { label: "Código 100% autoral", desc: "Cada linha tem intenção e propriedade. Sem boilerplates genéricos." },
   { label: "TypeScript estrito end-to-end", desc: "Do schema do banco ao componente React — tipagem em toda a stack." },
   { label: "Multi-tenant com isolamento real", desc: "Cada cliente opera em ambiente com garantias de segurança." },
-  { label: "Em produção", desc: "Infraestrutura real: Vercel, Render, Railway, VPS. Não é protótipo." },
+  { label: "Infraestrutura resiliente", desc: "Arquitetura distribuída com monitoramento, cache Redis e workers assíncronos." },
 ];
 
 /* ─────────────────────────────────────────────────────────────
@@ -157,7 +157,7 @@ function ProductPanel({ product }: { product: Product }) {
           <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
           <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
         </div>
-        <span className="text-[11px] text-white/50 font-mono">{product.name} — Produção</span>
+        <span className="text-[11px] text-white/50 font-mono">{product.name} — Demonstração Ativa</span>
         <span className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400">
           <span className="relative flex h-1.5 w-1.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -312,12 +312,8 @@ export default function HomePage() {
                   <span className="w-5 h-px bg-primary/60" />
                   Software House &amp; SaaS Studio
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
-                  </span>
-                  <span className="text-[10px] font-mono text-emerald-400 font-medium">Em produção</span>
+                <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[10px] font-mono text-white/50">
+                  Arquitetura Autoral
                 </span>
               </motion.div>
 
@@ -403,24 +399,11 @@ export default function HomePage() {
 
           </div>
 
-          {/* Infra Stats Bar */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.3 }}
-            className="flex flex-wrap items-center gap-6 sm:gap-10 py-4 mb-8 border-t border-b border-white/[0.08] text-[11px] font-mono text-white/45"
-          >
-            <span>Uptime <span className="text-emerald-400 ml-1 font-semibold">99.98%</span></span>
-            <span>Latência média <span className="text-white/70 ml-1">42ms</span></span>
-            <span>Tenants ativos <span className="text-white/70 ml-1">28</span></span>
-            <span>Deploys/semana <span className="text-white/70 ml-1">12</span></span>
-          </motion.div>
-
           {/* Product Switcher */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 1.5 }}
+            transition={{ duration: 0.7, delay: 1.3 }}
             className="space-y-4"
           >
             {/* Tabs */}
@@ -541,7 +524,7 @@ export default function HomePage() {
                   <span className="text-blue-400 font-semibold">02</span> — Produtos flagship
                 </div>
                 <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.03em]">
-                  Dois SaaS verticais em produção.
+                  SaaS verticais com arquitetura autoral.
                 </h2>
               </div>
             </FadeIn>
@@ -577,7 +560,7 @@ export default function HomePage() {
                   <span className="text-blue-400 font-semibold">03</span> — Ecossistema
                 </div>
                 <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.03em]">
-                  Mais soluções em produção.
+                  Soluções integradas sob medida.
                 </h2>
               </div>
             </FadeIn>
@@ -821,7 +804,7 @@ export default function HomePage() {
                   <span className="text-white/50">feito para ela.</span>
                 </h2>
                 <p className="text-[15px] text-white/55 leading-relaxed">
-                  Seja um SaaS vertical ou um sistema sob medida — a Vision Solutions projeta, desenvolve e entrega em produção.
+                  Seja um SaaS vertical ou um sistema sob medida — a Vision Solutions projeta, desenvolve e sustenta a infraestrutura da sua operação.
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
                   <Link
