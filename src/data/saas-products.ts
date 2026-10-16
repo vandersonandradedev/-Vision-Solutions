@@ -28,8 +28,8 @@ export const saasProducts: SaasProduct[] = [
     slug: "retail-os",
     name: "Retail-OS",
     category: "ERP para Varejo e Comércio",
-    status: "Em Desenvolvimento",
-    modules: ["Ponto de Venda (PDV)", "Controle de Grade", "Estoque Central", "Faturamento"],
+    status: "Em Produção",
+    modules: ["Ponto de Venda (PDV & Mobile)", "Controle de Grade (FEFO)", "Estoque Central", "Faturamento Fiscal"],
   },
   {
     slug: "mesago",
