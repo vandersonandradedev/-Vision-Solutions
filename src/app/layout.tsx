@@ -22,6 +22,17 @@ export const metadata: Metadata = {
     template: "%s — Vision Solutions",
   },
   description,
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     type: "website",
     locale: "pt_BR",
@@ -37,6 +48,12 @@ export const metadata: Metadata = {
     description,
     images: ["/og-image.png"],
   },
+};
+
+export const viewport = {
+  themeColor: "#08090D",
+  width: "device-width",
+  initialScale: 1,
 };
 
 const organizationJsonLd = {

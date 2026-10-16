@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -42,13 +43,22 @@ export function Navbar() {
         <div className="h-16 flex items-center justify-between gap-8">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group shrink-0">
-            <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
-              <span className="text-[#08090D] font-black text-xs tracking-tight font-mono">VS</span>
-            </div>
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0" aria-label="Vision Solutions Home">
+            <Image
+              src="/icon-192.png"
+              alt="Vision Solutions Logo"
+              width={32}
+              height={32}
+              priority
+              className="w-8 h-8 rounded-lg shadow-md shadow-blue-500/15 group-hover:scale-105 transition-transform duration-300 shrink-0"
+            />
             <div className="flex flex-col leading-none">
-              <span className="text-[11px] font-bold tracking-[0.15em] text-white uppercase">Vision</span>
-              <span className="text-[9px] tracking-[0.2em] text-white/40 uppercase font-medium">Solutions</span>
+              <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] text-white uppercase">
+                Vision
+              </span>
+              <span className="text-[8.5px] font-semibold tracking-[0.24em] text-sky-400 uppercase mt-0.5">
+                Solutions
+              </span>
             </div>
           </Link>
 

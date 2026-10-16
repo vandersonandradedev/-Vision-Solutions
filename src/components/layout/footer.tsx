@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 
 const PRODUCTS = [
@@ -32,13 +33,17 @@ export function Footer() {
           {/* Brand Column */}
           <div className="md:col-span-4 space-y-4 sm:space-y-5">
             <div className="flex items-center justify-between sm:justify-start gap-4">
-              <Link href="/" className="inline-flex items-center gap-2.5 group">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
-                  <span className="text-[#08090D] font-black text-[11px] sm:text-xs tracking-tight font-mono">VS</span>
-                </div>
+              <Link href="/" className="inline-flex items-center gap-2.5 group" aria-label="Vision Solutions Home">
+                <Image
+                  src="/icon-192.png"
+                  alt="Vision Solutions Logo"
+                  width={30}
+                  height={30}
+                  className="w-7 h-7 sm:w-[30px] sm:h-[30px] rounded-lg shadow-md shadow-blue-500/15 group-hover:scale-105 transition-transform duration-300 shrink-0"
+                />
                 <div className="flex flex-col leading-none">
-                  <span className="text-[11px] font-bold tracking-[0.15em] text-white uppercase">Vision</span>
-                  <span className="text-[9px] tracking-[0.2em] text-white/40 uppercase font-medium">Solutions</span>
+                  <span className="text-[12px] font-bold tracking-[0.14em] text-white uppercase">Vision</span>
+                  <span className="text-[8.5px] font-semibold tracking-[0.24em] text-sky-400 uppercase mt-0.5">Solutions</span>
                 </div>
               </Link>
 
