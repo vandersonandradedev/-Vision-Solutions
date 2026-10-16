@@ -107,34 +107,34 @@ const PRODUCTS = [
     ],
   },
   {
-    id: "meso-go",
-    name: "MesoGo",
-    category: "Logística & Gestão Operacional",
-    badge: "LOGÍSTICA",
-    color: "violet" as const,
-    tagline: "Roteirização inteligente, expedição e rastreio de cargas.",
+    id: "mesago",
+    name: "MesaGo",
+    category: "Gestão para Restaurantes & Gastronomia",
+    badge: "FOODTECH",
+    color: "emerald" as const,
+    tagline: "Reservas de mesas, controle de inventário e gestão de entregas.",
     description:
-      "Sistema de orquestração logística para distribuidores e transportadoras. Otimização de rotas de entrega, monitoramento de frotas e comprovantes de entrega digitais.",
-    stack: ["Next.js 15", "Go", "PostgreSQL", "Redis", "BullMQ", "Mapbox"],
-    image: undefined as string | undefined,
+      "Plataforma operacional para restaurantes, bares e gastronomia. Gestão em tempo real de reservas de mesas com mapa interativo, controle de insumos e estoque crítico, e orquestração de pedidos delivery.",
+    stack: ["Next.js 15", "NestJS", "PostgreSQL", "Redis", "BullMQ"],
+    image: "/images/mesago-preview.jpg",
     metrics: [
-      { label: "Rotas", value: "Otimização IA", delta: "Algorítmico" },
-      { label: "Expedição", value: "Manifesto Digital", delta: "Tempo Real" },
-      { label: "Comprovantes", value: "Assinatura Digital", delta: "Paperless" },
+      { label: "Operação", value: "Mesas & Salão", delta: "Interativo" },
+      { label: "Inventário", value: "Insumos Críticos", delta: "Tempo Real" },
+      { label: "Delivery", value: "Entregas & Rotas", delta: "Rastreio" },
     ],
-    tableHeaders: ["Remessa", "Destinatário", "Rota", "Previsão", "Status"],
+    tableHeaders: ["Mesa / Item", "Cliente / Insumo", "Horário / Qtd", "Status", "Tipo"],
     tableRows: [
-      { id: "REM-401", col2: "Distribuidora Atlas", col3: "Rota Centro-Sul", status: "Em rota", statusColor: "violet" as const, col5: "No prazo" },
-      { id: "REM-402", col2: "Supermercado Alfa", col3: "Rota Express Norte", status: "Entregue", statusColor: "emerald" as const, col5: "Assinado" },
-      { id: "REM-403", col2: "Depósito Industrial", col3: "Rota Leste Carga", status: "Carregando", statusColor: "amber" as const, col5: "Doca 04" },
-      { id: "REM-404", col2: "Farmácia Central", col3: "Rota Express Noturna", status: "Programado", statusColor: "blue" as const, col5: "Aguardando" },
+      { id: "Mesa 04", col2: "Reserva VIP (4 pessoas)", col3: "Hoje às 20:30h", status: "Confirmada", statusColor: "emerald" as const, col5: "Salão" },
+      { id: "Mesa 02", col2: "Reserva Casal", col3: "Hoje às 21:00h", status: "Em andamento", statusColor: "blue" as const, col5: "Salão" },
+      { id: "INS-108", col2: "Carne Moída Prime", col3: "Estoque: 4.2 kg", status: "Alerta Baixo", statusColor: "amber" as const, col5: "Inventário" },
+      { id: "DEL-841", col2: "Pedido Delivery Express", col3: "Saída há 8 min", status: "Em rota", statusColor: "emerald" as const, col5: "Entrega" },
     ],
     features: [
-      "Roteirização inteligente com múltiplos pontos de parada",
-      "Manifesto eletrônico de carga e documentação fiscal",
-      "Rastreamento de entrega com link seguro para o cliente",
-      "Comprovante digital com foto e geolocalização no ato da entrega",
-      "Telemetria de performance operacional da frota",
+      "Mapa interativo de mesas com status de ocupação em tempo real",
+      "Controle de insumos e fichas técnicas com alerta de reposição",
+      "Central de pedidos e integração direta de delivery",
+      "Agendamento e confirmação automática de reservas",
+      "Relatórios operacionais de faturamento, giro de mesa e consumo",
     ],
   },
 ] as const;
@@ -180,14 +180,14 @@ const ECOSYSTEM = [
     image: undefined as string | undefined,
   },
   {
-    id: "meso-go",
-    name: "MesoGo",
-    category: "Logística & Gestão Operacional",
-    desc: "Roteirização inteligente de frotas, orquestração de entregas em tempo real, manifesto digital e telemetria operacional de cargas.",
-    stack: ["Next.js 15", "Go", "PostgreSQL", "Redis", "BullMQ"],
-    accent: "text-violet-400",
-    accentBg: "bg-violet-500/10 border-violet-500/20",
-    image: undefined as string | undefined,
+    id: "mesago",
+    name: "MesaGo",
+    category: "Gestão para Restaurantes & Gastronomia",
+    desc: "Gestão completa para gastronomia: mapa interativo de reservas de mesa, controle de insumos em tempo real e monitoramento de entregas delivery.",
+    stack: ["Next.js 15", "NestJS", "PostgreSQL", "Redis", "BullMQ"],
+    accent: "text-emerald-400",
+    accentBg: "bg-emerald-500/10 border-emerald-500/20",
+    image: "/images/mesago-preview.jpg",
   },
 ];
 
@@ -504,9 +504,7 @@ export default function HomePage() {
                   <span className="relative">
                     {p.name}
                     <span className={`ml-1.5 text-[10px] font-mono opacity-70 ${
-                      p.color === "violet"
-                        ? "text-violet-400"
-                        : p.color === "amber"
+                      p.color === "amber"
                         ? "text-amber-400"
                         : p.color === "emerald"
                         ? "text-emerald-400"

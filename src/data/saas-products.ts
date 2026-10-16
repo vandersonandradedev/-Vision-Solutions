@@ -32,10 +32,10 @@ export const saasProducts: SaasProduct[] = [
     modules: ["Ponto de Venda (PDV)", "Controle de Grade", "Estoque Central", "Faturamento"],
   },
   {
-    slug: "meso-go",
-    name: "MesoGo",
-    category: "Logística & Gestão Operacional",
-    status: "Em Desenvolvimento",
-    modules: ["Rastreio de Cargas", "Roteirização Inteligente", "Expedição", "Telemetria"],
+    slug: "mesago",
+    name: "MesaGo",
+    category: "Gestão para Restaurantes & Gastronomia",
+    status: "Em Produção",
+    modules: ["Reservas de Mesa", "Inventário em Tempo Real", "Análise de Entregas", "Painel Operacional"],
   },
 ];

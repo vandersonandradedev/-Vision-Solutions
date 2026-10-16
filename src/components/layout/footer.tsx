@@ -5,7 +5,7 @@ const PRODUCTS = [
   { label: "TorqueOS", sub: "ERP Automotivo", href: "/produtos" },
   { label: "BarberCRM", sub: "Gestão para Barbearias", href: "/produtos" },
   { label: "Retail-OS", sub: "ERP Varejo & Comércio", href: "/produtos" },
-  { label: "MesoGo", sub: "Logística & Gestão", href: "/produtos" },
+  { label: "MesaGo", sub: "Restaurantes & Gastronomia", href: "/produtos" },
 ];
 
 const COMPANY = [
