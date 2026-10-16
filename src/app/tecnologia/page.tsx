@@ -1,61 +1,184 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowUpRight, ShieldCheck, Database, Layers, Server, Activity, Terminal } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { techLayers } from "@/data/tech-stack";
 
 export const metadata: Metadata = {
   title: "Engenharia",
-  description: "A arquitetura técnica em camadas usada nos sistemas da Vision Solutions.",
+  description: "A arquitetura técnica em camadas e a stack de engenharia da Vision Solutions.",
 };
+
+const LAYER_DETAILS = [
+  {
+    icon: Layers,
+    role: "Camada de Apresentação",
+    desc: "Aplicações SSR com React 19 e Next.js 15. Renderização otimizada, estados globais previsíveis e clientes desktop via Electron para operações locais.",
+  },
+  {
+    icon: Server,
+    role: "Gateway & Regras de Negócio",
+    desc: "APIs modulares em NestJS e Fastify. Validação estrita de contratos com Zod, autenticação JWT HTTPOnly e controle de permissões por perfil (RBAC).",
+  },
+  {
+    icon: Database,
+    role: "Persistência Relacional",
+    desc: "PostgreSQL 16 com Prisma ORM. Schemas fortemente tipados, migrações versionadas e estratégias de isolamento por tenant para segurança máxima.",
+  },
+  {
+    icon: Activity,
+    role: "Orquestração Assíncrona",
+    desc: "Filas distribuídas com BullMQ sobre Redis. Execução paralela de jobs pesados, retries automáticos com backoff exponencial e Dead Letter Queues.",
+  },
+  {
+    icon: Terminal,
+    role: "Infraestrutura & Entrega",
+    desc: "Contêineres Docker, esteiras de CI/CD automatizadas e monitoramento contínuo de métricas, erros e tempos de resposta.",
+  },
+];
+
+const ARCHITECTURAL_PRINCIPLES = [
+  {
+    title: "TypeScript Estrito End-to-End",
+    desc: "Do schema do PostgreSQL até a interface do usuário, nenhum dado circula sem tipagem estrita validada em tempo de compilação.",
+  },
+  {
+    title: "Isolamento Real de Multi-Tenancy",
+    desc: "Garantia de que os dados de um cliente nunca vazem para outro através de separação por schema ou Row-Level Security (RLS).",
+  },
+  {
+    title: "Resiliência contra Falhas",
+    desc: "Sistemas desenhados para falhas parciais. Se um worker assíncrono falhar, o job é reprocessado sem degradar a experiência do usuário.",
+  },
+  {
+    title: "Código 100% Autoral",
+    desc: "Não utilizamos templates pré-fabricados ou no-code. Cada microsserviço e componente é escrito com intencionalidade técnica.",
+  },
+];
 
 export default function TecnologiaPage() {
   return (
-    <>
+    <div className="bg-[#08090D] min-h-screen text-white selection:bg-primary/30 selection:text-white">
       <PageHeader
-        eyebrow="Engenharia"
-        title="Arquitetura em camadas, não em improviso."
-        description="Cada sistema é construído sobre a mesma base técnica sólida — da interface até a infraestrutura."
+        eyebrow="Engenharia & Arquitetura"
+        title="Arquitetura em camadas. Tipagem estrita de ponta a ponta."
+        description="Cada sistema é construído sobre a mesma base técnica sólida — do evento no navegador ao registro relacional imutável no banco de dados."
       />
 
-      <section className="px-5 py-16 sm:px-6 xl:px-0">
-        <div className="mx-auto max-w-editorial">
-          <div className="relative border-l border-line pl-8">
-            {techLayers.map((layer) => (
-              <div key={layer.label} className="relative pb-14 last:pb-0">
-                <span
-                  className="absolute -left-[41px] top-1 flex h-8 w-8 items-center justify-center rounded border border-line-strong bg-surface font-technical text-micro text-ink-faint"
-                  aria-hidden
+      {/* Layer Architecture Pipeline */}
+      <section className="px-6 py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto space-y-12">
+          <div className="space-y-3">
+            <span className="text-[11px] font-medium text-white/50 uppercase tracking-widest">
+              Topologia do Sistema
+            </span>
+            <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white tracking-tight">
+              Cinco camadas de isolamento e responsabilidade única.
+            </h2>
+          </div>
+
+          <div className="space-y-6">
+            {techLayers.map((layer, i) => {
+              const detail = LAYER_DETAILS[i];
+              const Icon = detail?.icon ?? Layers;
+
+              return (
+                <div
+                  key={layer.label}
+                  className="rounded-2xl bg-[#14171F] border border-white/[0.08] hover:border-white/[0.16] p-7 sm:p-9 transition-all duration-300 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
                 >
-                  {layer.label}
-                </span>
-                <h2 className="text-h3 font-semibold text-ink">{layer.title}</h2>
-                <ul className="mt-3 flex flex-wrap gap-2">
-                  {layer.technologies.map((tech) => (
-                    <li
-                      key={tech}
-                      className="rounded border border-line-strong bg-elevated px-2.5 py-1 font-technical text-micro text-sky"
-                    >
-                      {tech}
-                    </li>
-                  ))}
-                </ul>
+                  <div className="lg:col-span-4 space-y-3">
+                    <div className="flex items-center gap-3">
+                      <span className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/[0.1] flex items-center justify-center text-xs font-mono font-bold text-primary-soft">
+                        {layer.label}
+                      </span>
+                      <span className="text-[11px] text-white/45 uppercase tracking-wider font-medium">
+                        {detail?.role}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-bold text-white tracking-tight">
+                      {layer.title}
+                    </h3>
+                  </div>
+
+                  <div className="lg:col-span-5">
+                    <p className="text-[14px] text-white/60 leading-relaxed">
+                      {detail?.desc}
+                    </p>
+                  </div>
+
+                  <div className="lg:col-span-3 flex flex-wrap gap-2 lg:justify-end">
+                    {layer.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 rounded-md text-[11px] font-mono font-medium text-white/75 bg-white/[0.04] border border-white/[0.08]"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Architectural Guarantees Grid */}
+      <section className="px-6 py-20 sm:py-28 border-t border-white/[0.07] bg-[#0A0D13]">
+        <div className="max-w-7xl mx-auto space-y-14">
+          <div className="space-y-3 max-w-2xl">
+            <span className="text-[11px] font-medium text-white/50 uppercase tracking-widest">
+              Garantias Técnicas
+            </span>
+            <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white tracking-tight">
+              Padrões inegociáveis de qualidade de software.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {ARCHITECTURAL_PRINCIPLES.map((principle) => (
+              <div
+                key={principle.title}
+                className="rounded-xl bg-[#14171F] border border-white/[0.07] p-7 space-y-3 hover:border-white/[0.14] transition-all duration-300"
+              >
+                <div className="flex items-center gap-2 text-primary-soft">
+                  <ShieldCheck className="w-5 h-5" />
+                  <h3 className="text-[16px] font-bold text-white tracking-tight">
+                    {principle.title}
+                  </h3>
+                </div>
+                <p className="text-[14px] text-white/55 leading-relaxed">
+                  {principle.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-line px-5 py-16 sm:px-6 xl:px-0">
-        <div className="mx-auto max-w-editorial">
-          <span className="font-technical text-micro uppercase tracking-wide text-ink-faint">
-            Stack
-          </span>
-          <p className="mt-4 max-w-2xl text-body-lg text-ink-dim">
-            Next.js 15 e React 19 no frontend, TypeScript estrito em toda a base
-            de código, Three.js puro para visualização de sistemas, Framer
-            Motion para interface, deploy contínuo na Vercel.
+      {/* CTA Section */}
+      <section className="px-6 py-24 sm:py-32 border-t border-white/[0.07]">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h2 className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-bold text-white tracking-tight">
+            Quer discutir a arquitetura da sua operação?
+          </h2>
+          <p className="text-[15px] text-white/60 leading-relaxed max-w-xl mx-auto">
+            Nossos engenheiros podem avaliar seu fluxo atual de dados e desenhar um plano de engenharia sob medida.
           </p>
+          <div className="pt-2">
+            <Link
+              href="/contato"
+              className="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-primary hover:bg-primary-dim text-white text-[14px] font-semibold tracking-[-0.01em] transition-all duration-300 shadow-md"
+            >
+              <span>Conversar sobre engenharia</span>
+              <div className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-200">
+                <ArrowUpRight className="w-4 h-4 text-white" />
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

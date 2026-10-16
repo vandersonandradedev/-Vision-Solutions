@@ -440,17 +440,21 @@ export default function HomePage() {
               >
                 <Link
                   href="/produtos"
-                  className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary hover:bg-primary-dim text-white text-[13px] font-semibold tracking-[-0.01em] transition-all duration-300 shadow-sm"
+                  className="group inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary hover:bg-primary-dim text-white text-[13px] font-medium tracking-[-0.01em] transition-all duration-300 shadow-md shadow-primary/20"
                 >
-                  Ver nossos produtos
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                  <span>Ver nossos produtos</span>
+                  <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
+                    <ArrowRight className="w-3 h-3 text-white" />
+                  </span>
                 </Link>
                 <Link
                   href="/contato"
-                  className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/[0.06] border border-white/[0.12] text-white/80 text-[13px] font-medium hover:text-white hover:bg-white/[0.1] hover:border-white/[0.2] transition-all duration-300"
+                  className="group inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#14171F] border border-white/[0.1] text-white/80 text-[13px] font-medium hover:text-white hover:bg-white/[0.08] hover:border-white/[0.18] transition-all duration-300"
                 >
-                  Construir um sistema
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
+                  <span>Construir um sistema</span>
+                  <span className="w-5 h-5 rounded-full bg-white/[0.08] flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
+                    <ArrowUpRight className="w-3 h-3 text-white/70 group-hover:text-white" />
+                  </span>
                 </Link>
               </motion.div>
             </div>
@@ -560,8 +564,9 @@ export default function HomePage() {
 
             <div className="lg:col-span-5 space-y-6">
               <FadeIn>
-                <div className="text-[11px] font-mono text-white/40 uppercase tracking-[0.2em] font-medium">
-                  <span className="text-blue-400 font-semibold">01</span> — Nossa abordagem
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-medium text-white/60">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Nossa Abordagem
                 </div>
               </FadeIn>
               <FadeIn delay={0.1}>
@@ -578,7 +583,7 @@ export default function HomePage() {
               <FadeIn delay={0.3}>
                 <Link
                   href="/sobre"
-                  className="group inline-flex items-center gap-1.5 text-[13px] text-blue-400 hover:text-blue-300 transition-colors duration-300 font-medium"
+                  className="group inline-flex items-center gap-1.5 text-[13px] text-primary-soft hover:text-white transition-colors duration-300 font-medium"
                 >
                   Conhecer a Vision
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
@@ -589,10 +594,10 @@ export default function HomePage() {
             <StaggerList className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4" stagger={0.1}>
               {PRINCIPLES.map((p) => (
                 <StaggerItem key={p.label}>
-                  <div className="group p-5 rounded-xl bg-[#161C2B]/80 border border-white/[0.08] space-y-2 hover:bg-[#1A2234] hover:border-white/[0.14] transition-all duration-300">
+                  <div className="group p-5 rounded-xl bg-[#14171F] border border-white/[0.07] space-y-2 hover:bg-[#171A21] hover:border-white/[0.12] transition-all duration-300">
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-blue-500/15 border border-blue-500/30 flex items-center justify-center shrink-0 mt-0.5">
-                        <Check className="w-2.5 h-2.5 text-blue-400" />
+                      <div className="w-5 h-5 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0 mt-0.5">
+                        <Check className="w-2.5 h-2.5 text-primary-soft" />
                       </div>
                       <div className="space-y-1">
                         <h3 className="text-[13.5px] font-semibold text-white/90 leading-tight">{p.label}</h3>
@@ -617,8 +622,9 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
             <FadeIn>
               <div className="space-y-3">
-                <div className="text-[11px] font-mono text-white/40 uppercase tracking-[0.2em] font-medium">
-                  <span className="text-blue-400 font-semibold">02</span> — Produtos flagship
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-medium text-white/60">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Produtos Flagship
                 </div>
                 <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.03em]">
                   SaaS verticais com arquitetura autoral.
@@ -653,8 +659,9 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
             <FadeIn>
               <div className="space-y-3">
-                <div className="text-[11px] font-mono text-white/40 uppercase tracking-[0.2em] font-medium">
-                  <span className="text-blue-400 font-semibold">03</span> — Ecossistema
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-medium text-white/60">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Ecossistema
                 </div>
                 <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.03em]">
                   Soluções integradas sob medida.
@@ -672,17 +679,17 @@ export default function HomePage() {
           <StaggerList className="grid grid-cols-1 lg:grid-cols-2 gap-6" stagger={0.12}>
             {ECOSYSTEM.map((p) => (
               <StaggerItem key={p.name}>
-                <div className="group p-6 sm:p-7 rounded-2xl bg-[#161C2B]/90 border border-white/[0.09] hover:bg-[#1A2235] hover:border-white/[0.16] transition-all duration-500 overflow-hidden shadow-xl grid grid-cols-1 sm:grid-cols-12 gap-6 items-center h-full">
+                <div className="group p-6 sm:p-7 rounded-2xl bg-[#14171F] border border-white/[0.07] hover:bg-[#171A21] hover:border-white/[0.14] transition-all duration-300 overflow-hidden shadow-xl grid grid-cols-1 sm:grid-cols-12 gap-6 items-center h-full">
                   
                   {/* Left Column: Text & Stack */}
                   <div className="sm:col-span-7 space-y-4 flex flex-col justify-between h-full">
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <h3 className="text-[17px] font-bold text-white tracking-[-0.01em]">{p.name}</h3>
+                        <h3 className="text-[17px] font-semibold text-white tracking-[-0.01em]">{p.name}</h3>
                         <ArrowUpRight className="w-4 h-4 text-white/30 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
                       </div>
                       <div>
-                        <span className={`inline-block px-2.5 py-0.5 rounded text-[10px] font-mono border ${p.accent} ${p.accentBg}`}>
+                        <span className={`inline-block px-2.5 py-0.5 rounded text-[11px] font-medium border ${p.accent} ${p.accentBg}`}>
                           {p.category}
                         </span>
                       </div>
@@ -691,20 +698,20 @@ export default function HomePage() {
 
                     <div className="flex flex-wrap gap-1.5 pt-2">
                       {p.stack.map((t) => (
-                        <span key={t} className="px-2 py-0.5 rounded text-[10px] font-mono text-white/50 bg-white/[0.05] border border-white/[0.08]">{t}</span>
+                        <span key={t} className="px-2 py-0.5 rounded text-[10px] text-white/50 bg-white/[0.04] border border-white/[0.07]">{t}</span>
                       ))}
                     </div>
                   </div>
 
                   {/* Right Column: Floating Preview Image / UI Container */}
                   <div className="sm:col-span-5 relative flex items-center justify-center">
-                    <div className="relative w-full aspect-[16/10] rounded-xl bg-[#0F131E] border border-white/[0.12] shadow-2xl transform group-hover:scale-[1.03] group-hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col justify-between">
+                    <div className="relative w-full aspect-[16/10] rounded-xl bg-[#0D1017] border border-white/[0.08] shadow-2xl transform group-hover:scale-[1.02] group-hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col justify-between">
                       {p.image ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={p.image}
                           alt={`${p.name} preview`}
-                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                         />
                       ) : (
                         /* Minimalist Software Preview Blueprint Frame */
@@ -755,8 +762,9 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5 space-y-6">
               <FadeIn>
-                <div className="text-[11px] font-mono text-white/40 uppercase tracking-[0.2em] font-medium">
-                  <span className="text-blue-400 font-semibold">04</span> — Engenharia & Arquitetura
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-medium text-white/60">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Engenharia &amp; Arquitetura
                 </div>
               </FadeIn>
               <FadeIn delay={0.1}>
@@ -773,7 +781,7 @@ export default function HomePage() {
               <FadeIn delay={0.3}>
                 <Link
                   href="/tecnologia"
-                  className="group inline-flex items-center gap-1.5 text-[13px] text-blue-400 hover:text-blue-300 transition-colors duration-300 font-medium"
+                  className="group inline-flex items-center gap-1.5 text-[13px] text-primary-soft hover:text-white transition-colors duration-300 font-medium"
                 >
                   Arquitetura completa
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
@@ -782,15 +790,15 @@ export default function HomePage() {
             </div>
 
             <FadeIn className="lg:col-span-7" delay={0.2} direction="up" distance={28}>
-              <div className="rounded-xl bg-[#161C2B] border border-white/[0.1] overflow-hidden p-6 space-y-6 shadow-xl">
-                <div className="flex items-center justify-between pb-4 border-b border-white/[0.08]">
+              <div className="rounded-2xl bg-[#14171F] border border-white/[0.07] overflow-hidden p-6 sm:p-7 space-y-6 shadow-xl">
+                <div className="flex items-center justify-between pb-4 border-b border-white/[0.06]">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
                     <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
                     <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
-                    <span className="ml-2 text-[11px] text-white/50 font-mono">data-pipeline.topology.ts</span>
+                    <span className="ml-2 text-[12px] text-white/50 font-normal">data-pipeline.topology.ts</span>
                   </div>
-                  <span className="text-[10px] font-mono text-blue-400 bg-blue-500/15 px-2 py-0.5 rounded border border-blue-500/30 font-medium">
+                  <span className="text-[11px] font-medium text-primary-soft bg-primary/10 px-2.5 py-0.5 rounded-full border border-primary/20">
                     Fluxo End-to-End
                   </span>
                 </div>
@@ -806,26 +814,26 @@ export default function HomePage() {
                   ].map((node) => (
                     <div
                       key={node.name}
-                      className="group p-3.5 rounded-lg bg-[#111520] border border-white/[0.09] hover:bg-[#1A2234] hover:border-blue-500/40 transition-all duration-300 relative text-left"
+                      className="group p-3.5 rounded-xl bg-[#171A21] border border-white/[0.07] hover:bg-[#1C202B] hover:border-primary/40 transition-all duration-300 relative text-left"
                     >
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-[9px] font-mono text-white/40">{node.step}</span>
-                        <span className="text-[9px] font-mono text-blue-400 font-medium uppercase">{node.tag}</span>
+                        <span className="text-[10px] text-white/40">{node.step}</span>
+                        <span className="text-[10px] text-primary-soft font-medium uppercase">{node.tag}</span>
                       </div>
                       <div className="text-[12px] font-semibold text-white/90 group-hover:text-white transition-colors">{node.name}</div>
-                      <div className="text-[10px] text-white/50 font-mono mt-0.5">{node.tech}</div>
+                      <div className="text-[10px] text-white/50 mt-0.5">{node.tech}</div>
                     </div>
                   ))}
                 </div>
 
                 {/* Technical Stack Layer Breakdown */}
-                <StaggerList className="divide-y divide-white/[0.06] pt-2" stagger={0.05}>
+                <StaggerList className="divide-y divide-white/[0.05] pt-2" stagger={0.05}>
                   {ARCHITECTURE.map((a, i) => (
                     <StaggerItem key={a.layer}>
-                      <div className="flex items-start gap-4 py-3 hover:bg-white/[0.04] transition-colors duration-200 px-2 rounded">
+                      <div className="flex items-start gap-4 py-3 hover:bg-white/[0.03] transition-colors duration-200 px-2 rounded-lg">
                         <div className="flex items-center gap-3 shrink-0 w-28">
                           <span className="text-[11px] text-white/35 font-mono w-4 text-right">{String(i + 1).padStart(2, "0")}</span>
-                          <span className="px-1.5 py-0.5 rounded text-[9px] font-mono bg-white/[0.06] border border-white/[0.1] text-white/50 uppercase tracking-wider font-medium">{a.badge}</span>
+                          <span className="px-1.5 py-0.5 rounded text-[10px] bg-white/[0.05] border border-white/[0.08] text-white/55 uppercase tracking-wider font-medium">{a.badge}</span>
                         </div>
                         <div className="space-y-0.5 flex-1 min-w-0">
                           <div className="text-[13px] font-medium text-white/85">{a.layer}</div>
@@ -849,10 +857,11 @@ export default function HomePage() {
       <section className="py-28 px-6 border-t border-white/[0.08]">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
-            <div className="relative rounded-2xl bg-[#161C2B]/80 border border-white/[0.1] p-10 sm:p-16 overflow-hidden text-center shadow-xl">
+            <div className="relative rounded-3xl bg-[#14171F] border border-white/[0.07] p-10 sm:p-16 overflow-hidden text-center shadow-2xl">
               <div className="relative space-y-6 max-w-2xl mx-auto">
-                <div className="text-[11px] font-mono text-white/40 uppercase tracking-[0.2em] font-medium">
-                  <span className="text-blue-400 font-semibold">05</span> — Vamos construir juntos
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-medium text-white/60">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Vamos Construir Juntos
                 </div>
                 <h2 className="text-[clamp(1.8rem,4vw,2.8rem)] font-bold leading-[1.1] tracking-[-0.03em]">
                   Sua operação merece um sistema{" "}
@@ -864,17 +873,21 @@ export default function HomePage() {
                 <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
                   <Link
                     href="/contato"
-                    className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary hover:bg-primary-dim text-white text-[14px] font-semibold tracking-[-0.01em] transition-all duration-300 shadow-sm"
+                    className="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-primary hover:bg-primary-dim text-white text-[13.5px] font-medium tracking-[-0.01em] transition-all duration-300 shadow-md shadow-primary/20"
                   >
-                    Falar com a Vision
-                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                    <span>Falar com a Vision</span>
+                    <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
+                      <ArrowRight className="w-3 h-3 text-white" />
+                    </span>
                   </Link>
                   <Link
                     href="/produtos"
-                    className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white/[0.06] border border-white/[0.12] text-white/75 text-[14px] font-medium hover:text-white hover:bg-white/[0.1] transition-all duration-300"
+                    className="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#171A21] border border-white/[0.1] text-white/80 text-[13.5px] font-medium hover:text-white hover:bg-white/[0.08] hover:border-white/[0.18] transition-all duration-300"
                   >
-                    Ver nossos produtos
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
+                    <span>Ver nossos produtos</span>
+                    <span className="w-5 h-5 rounded-full bg-white/[0.08] flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
+                      <ArrowUpRight className="w-3 h-3 text-white/70 group-hover:text-white" />
+                    </span>
                   </Link>
                 </div>
               </div>

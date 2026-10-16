@@ -7,11 +7,11 @@ const config: Config = {
       colors: {
         base: "#08090D",
         "base-2": "#0B0E14",
-        surface: "#111622",
-        elevated: "#151923",
-        "elevated-2": "#1A1E29",
-        line: "rgba(231, 234, 240, 0.07)",
-        "line-strong": "rgba(231, 234, 240, 0.13)",
+        surface: "#14171F",
+        elevated: "#171A21",
+        "elevated-2": "#1C202B",
+        line: "rgba(255, 255, 255, 0.07)",
+        "line-strong": "rgba(255, 255, 255, 0.12)",
         ink: {
           DEFAULT: "#E7EAF0",
           dim: "#9AA3B5",
@@ -26,11 +26,13 @@ const config: Config = {
         sky: "#38BDF8",
         blue: "#2563EB",
         emerald: "#10B981",
+        amber: "#F59E0B",
         // Kept for any component still referencing the previous token name.
         purple: "#A855F7",
       },
       fontFamily: {
         sans: [
+          "var(--font-inter)",
           "-apple-system",
           "BlinkMacSystemFont",
           "Segoe UI",
@@ -61,6 +63,10 @@ const config: Config = {
         sm: "4px",
         DEFAULT: "6px",
         md: "8px",
+        lg: "10px",
+        xl: "14px",
+        "2xl": "18px",
+        "3xl": "24px",
       },
       maxWidth: {
         editorial: "1200px",

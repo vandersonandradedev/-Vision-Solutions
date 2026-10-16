@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowUpRight, Check } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { principles } from "@/data/principles";
 
@@ -9,41 +11,67 @@ export const metadata: Metadata = {
 
 export default function SobrePage() {
   return (
-    <>
+    <div className="bg-[#08090D] min-h-screen text-white selection:bg-primary/30 selection:text-white">
       <PageHeader
-        eyebrow="Empresa"
+        eyebrow="Sobre a Vision"
         title="Uma software house que constrói sua própria engenharia."
-        description="Construímos SaaS verticais e sistemas sob medida para empresas que precisam transformar processos complexos em operação digital estruturada, rápida e estável."
+        description="Desenvolvemos SaaS verticais e sistemas sob medida para operações que já superaram planilhas e não cabem em softwares genéricos de mercado."
       />
 
-      <section className="border-b border-line px-5 py-16 sm:px-6 xl:px-0">
-        <div className="mx-auto grid max-w-editorial grid-cols-1 gap-10 md:grid-cols-12">
-          <p className="text-body-lg text-ink-dim md:col-span-7">
-            A maioria dos gargalos operacionais não é falta de esforço da
-            equipe, mas a ausência de um sistema que reflita as regras reais
-            do negócio. É esse o problema que resolvemos: não vendemos
-            software genérico configurado para parecer sob medida — projetamos
-            e construímos o sistema a partir do processo real da operação.
-          </p>
+      {/* Editorial Manifesto Block */}
+      <section className="px-6 py-20 sm:py-28 border-b border-white/[0.07]">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            <div className="lg:col-span-5 space-y-4">
+              <span className="text-[11px] font-medium text-white/50 uppercase tracking-widest">
+                Nossa Filosofia
+              </span>
+              <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white tracking-tight leading-[1.15]">
+                O gargalo raramente é a equipe. É o sistema.
+              </h2>
+            </div>
+            <div className="lg:col-span-7 space-y-6 text-[15px] sm:text-[16px] text-white/65 leading-relaxed">
+              <p>
+                A maioria das empresas não sofre por falta de dedicação operacional, mas pela ausência de um sistema que reflita as regras reais do seu negócio. Ferramentas genéricas forçam a empresa a se adaptar a elas — criando processos paralelos no WhatsApp, anotações em papel e planilhas de contingência.
+              </p>
+              <p>
+                É exatamente esse problema que eliminamos. Não vendemos pacotes prontos configurados para parecer sob medida: estudamos a operação real no detalhe e construímos o sistema em volta dela, garantindo fluidez, rastreabilidade e integridade de dados.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="px-5 py-16 sm:px-6 xl:px-0">
-        <div className="mx-auto max-w-editorial">
-          <span className="font-technical text-micro uppercase tracking-wide text-ink-faint">
-            Princípios
-          </span>
+      {/* Principles Bento Grid */}
+      <section className="px-6 py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto space-y-14">
+          <div className="space-y-3">
+            <span className="text-[11px] font-medium text-white/50 uppercase tracking-widest">
+              Valores Inegociáveis
+            </span>
+            <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white tracking-tight">
+              Cinco princípios que guiam cada linha de código.
+            </h2>
+          </div>
 
-          <div className="mt-8 divide-y divide-line">
-            {principles.map((principle) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {principles.map((principle, index) => (
               <div
                 key={principle.title}
-                className="grid grid-cols-1 gap-2 py-7 md:grid-cols-12 md:items-baseline md:gap-8"
+                className="rounded-2xl bg-[#14171F] border border-white/[0.08] hover:border-white/[0.16] p-7 sm:p-8 space-y-4 transition-all duration-300 shadow-xl"
               >
-                <h2 className="text-h3 font-semibold text-ink md:col-span-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-xs font-mono font-bold text-primary-soft">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+                  <div className="w-5 h-5 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center">
+                    <Check className="w-3 h-3 text-emerald-400" />
+                  </div>
+                </div>
+                <h3 className="text-[18px] font-bold text-white tracking-tight">
                   {principle.title}
-                </h2>
-                <p className="text-body text-ink-dim md:col-span-8">
+                </h3>
+                <p className="text-[14px] text-white/55 leading-relaxed">
                   {principle.description}
                 </p>
               </div>
@@ -51,6 +79,29 @@ export default function SobrePage() {
           </div>
         </div>
       </section>
-    </>
+
+      {/* CTA Section */}
+      <section className="px-6 py-24 sm:py-32 border-t border-white/[0.07] bg-[#0A0D13]">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h2 className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-bold text-white tracking-tight">
+            Quer entender como podemos ajudar sua empresa?
+          </h2>
+          <p className="text-[15px] text-white/60 leading-relaxed max-w-xl mx-auto">
+            Fale diretamente com os fundadores e arquitetos da Vision Solutions.
+          </p>
+          <div className="pt-2">
+            <Link
+              href="/contato"
+              className="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-primary hover:bg-primary-dim text-white text-[14px] font-semibold tracking-[-0.01em] transition-all duration-300 shadow-md"
+            >
+              <span>Entrar em contato</span>
+              <div className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-200">
+                <ArrowUpRight className="w-4 h-4 text-white" />
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

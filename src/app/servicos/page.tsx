@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowUpRight, CheckCircle2, Layers, Cpu, Network, Zap } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { coreSolutions, processSteps } from "@/data/services";
 
@@ -7,55 +9,128 @@ export const metadata: Metadata = {
   description: "Software sob medida para o seu processo: ERPs, SaaS multi-tenant, APIs e automação.",
 };
 
+const SOLUTION_ICONS = [Layers, Cpu, Network, Zap];
+
 export default function ServicosPage() {
   return (
-    <>
+    <div className="bg-[#08090D] min-h-screen text-white selection:bg-primary/30 selection:text-white">
       <PageHeader
-        eyebrow="Soluções"
-        title="Software sob medida para o seu processo."
-        description="Não vendemos módulos prontos. Construímos o sistema que a sua operação realmente precisa."
+        eyebrow="Soluções Sob Demanda"
+        title="Engenharia de software desenhada para a sua operação."
+        description="Não vendemos módulos genéricos adaptados. Projetamos, construímos e sustentamos a arquitetura que seu negócio precisa para operar com precisão e escala."
       />
 
-      <section className="border-b border-line px-5 py-16 sm:px-6 xl:px-0">
-        <div className="mx-auto grid max-w-editorial grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2">
-          {coreSolutions.map((solution) => (
-            <div key={solution.title} className="border-t border-line pt-6">
-              <h2 className="text-h3 font-semibold text-ink">{solution.title}</h2>
-              <p className="mt-3 max-w-sm text-body text-ink-dim">{solution.description}</p>
-              <ul className="mt-5 space-y-2 font-technical text-micro text-ink-faint">
-                {solution.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
+      {/* Core Solutions Bento Grid */}
+      <section className="px-6 py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto space-y-12">
+          <div className="space-y-3">
+            <span className="text-[11px] font-medium text-white/50 uppercase tracking-widest">
+              Capacidades Técnicas
+            </span>
+            <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white tracking-tight">
+              Quatro disciplinas de engenharia aplicada.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {coreSolutions.map((solution, i) => {
+              const Icon = SOLUTION_ICONS[i] ?? Layers;
+
+              return (
+                <div
+                  key={solution.title}
+                  className="rounded-2xl bg-[#14171F] border border-white/[0.08] hover:border-white/[0.16] p-7 sm:p-9 space-y-6 transition-all duration-300 shadow-xl flex flex-col justify-between"
+                >
+                  <div className="space-y-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/[0.1] flex items-center justify-center text-primary-soft">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-bold text-white tracking-tight">
+                        {solution.title}
+                      </h3>
+                      <p className="text-[14px] sm:text-[15px] text-white/60 leading-relaxed">
+                        {solution.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-white/[0.06] space-y-2.5">
+                    {solution.items.map((item) => (
+                      <div key={item} className="flex items-center gap-2.5 text-[13px] text-white/75">
+                        <CheckCircle2 className="w-4 h-4 text-primary-soft shrink-0" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      <section className="px-5 py-16 sm:px-6 xl:px-0">
-        <div className="mx-auto max-w-editorial">
-          <span className="font-technical text-micro uppercase tracking-wide text-ink-faint">
-            Como trabalhamos
-          </span>
-          <h2 className="mt-4 max-w-lg text-display-2 font-semibold text-ink">
-            Da compreensão do processo ao suporte contínuo.
-          </h2>
+      {/* Methodology Section */}
+      <section className="px-6 py-20 sm:py-28 border-t border-white/[0.07] bg-[#0A0D13]">
+        <div className="max-w-7xl mx-auto space-y-14">
+          <div className="space-y-3 max-w-2xl">
+            <span className="text-[11px] font-medium text-white/50 uppercase tracking-widest">
+              Metodologia de Entrega
+            </span>
+            <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white tracking-tight">
+              Da compreensão do processo ao deploy com monitoramento contínuo.
+            </h2>
+            <p className="text-[15px] text-white/55 leading-relaxed">
+              Trabalhamos com ciclos curtos, previsibilidade e validação com os operadores reais do sistema antes de qualquer lançamento em produção.
+            </p>
+          </div>
 
-          <ol className="mt-12 border-l border-line">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {processSteps.map((step) => (
-              <li key={step.number} className="relative pb-10 pl-8 last:pb-0">
-                <span
-                  className="absolute -left-[5px] top-1 h-[9px] w-[9px] rounded-full bg-primary"
-                  aria-hidden
-                />
-                <span className="font-technical text-micro text-ink-faint">{step.number}</span>
-                <h3 className="mt-1 text-h3 font-semibold text-ink">{step.title}</h3>
-                <p className="mt-2 max-w-md text-body text-ink-dim">{step.description}</p>
-              </li>
+              <div
+                key={step.number}
+                className="rounded-xl bg-[#14171F] border border-white/[0.07] p-6 space-y-3 hover:border-white/[0.14] transition-all duration-300"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="w-7 h-7 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-xs font-mono font-bold text-primary-soft">
+                    {step.number}
+                  </span>
+                  <span className="text-[11px] text-white/30 font-mono">etapa {step.number}</span>
+                </div>
+                <h3 className="text-[16px] font-bold text-white tracking-tight">
+                  {step.title}
+                </h3>
+                <p className="text-[13px] text-white/55 leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
-    </>
+
+      {/* CTA Section */}
+      <section className="px-6 py-24 sm:py-32 border-t border-white/[0.07]">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h2 className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-bold text-white tracking-tight">
+            Pronto para estruturar o software da sua operação?
+          </h2>
+          <p className="text-[15px] text-white/60 leading-relaxed max-w-xl mx-auto">
+            Agende uma conversa técnica diretamente com nossos arquitetos. Sem apresentações genéricas de vendas.
+          </p>
+          <div className="pt-2">
+            <Link
+              href="/contato"
+              className="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-primary hover:bg-primary-dim text-white text-[14px] font-semibold tracking-[-0.01em] transition-all duration-300 shadow-md"
+            >
+              <span>Solicitar diagnóstico do processo</span>
+              <div className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-200">
+                <ArrowUpRight className="w-4 h-4 text-white" />
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
