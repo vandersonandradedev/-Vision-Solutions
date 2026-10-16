@@ -106,13 +106,14 @@ export default function ProdutosPage() {
                 {/* Column: Visual Preview */}
                 <div className={`lg:col-span-6 ${isReverse ? "lg:order-1" : ""}`}>
                   <div className="rounded-2xl bg-white/[0.02] p-1.5 sm:p-2.5 border border-white/[0.08] shadow-2xl">
-                    <div className="rounded-xl overflow-hidden bg-[#111318] border border-white/[0.06] relative aspect-[16/10] group">
+                    <div className="rounded-xl overflow-hidden bg-[#0B0D13] border border-white/[0.06] relative aspect-[21/10] group">
                       {/* Product Image */}
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={product.image}
                         alt={`${product.name} interface mockup`}
-                        className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700"
+                        className="w-full h-full object-contain object-center transition-all duration-500"
+                        style={{ imageRendering: "-webkit-optimize-contrast" }}
                       />
                     </div>
                   </div>

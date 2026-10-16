@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight, Check } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { StaggerList, StaggerItem } from "@/components/motion/StaggerList";
 import { HeroWord } from "@/components/motion/HeroWord";
@@ -211,9 +211,102 @@ const PRINCIPLES = [
    SUBCOMPONENTS
 ───────────────────────────────────────────────────────────── */
 
+function InteractiveImagePreview({
+  src,
+  alt,
+  productName,
+}: {
+  src: string;
+  alt: string;
+  productName: string;
+}) {
+  const [isHovered, setIsHovered] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <div
+      className="relative w-full bg-[#0B0D13] overflow-hidden group select-none"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Scrollable container with native crisp proportions and smooth scroll capability */}
+      <div
+        ref={scrollContainerRef}
+        className="relative w-full overflow-x-auto overflow-y-hidden no-scrollbar aspect-[21/10] max-h-[560px] flex items-center justify-center cursor-grab active:cursor-grabbing"
+      >
+        <motion.div
+          className="relative w-full h-full min-w-[700px] sm:min-w-[920px] lg:min-w-full flex items-center justify-center"
+          animate={
+            isHovered
+              ? { x: 0, scale: 1 }
+              : {
+                  x: [0, -16, 0, 16, 0],
+                  scale: [1, 1.005, 1],
+                }
+          }
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={src}
+            alt={alt}
+            className="w-full h-full object-contain object-center drop-shadow-2xl transition-all duration-300"
+            style={{
+              imageRendering: "-webkit-optimize-contrast",
+            }}
+          />
+        </motion.div>
+      </div>
+
+      {/* Subtle edge fade overlays for cinematic framing */}
+      <div className="absolute inset-y-0 left-0 w-6 sm:w-12 bg-gradient-to-r from-[#0B0D13] to-transparent pointer-events-none opacity-40 sm:opacity-70" />
+      <div className="absolute inset-y-0 right-0 w-6 sm:w-12 bg-gradient-to-l from-[#0B0D13] to-transparent pointer-events-none opacity-40 sm:opacity-70" />
+
+      {/* Discreet Interactive Pill Badge */}
+      <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 flex items-center gap-2 pointer-events-none">
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/10 text-[10.5px] sm:text-[11px] font-mono text-white/70 shadow-lg">
+          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+          <span>Scroll animado · Nitidez 1:1</span>
+        </span>
+      </div>
+    </div>
+  );
+}
+
 function ProductPanel({ product }: { product: Product }) {
   return (
-    <div className="rounded-xl bg-[#171A21] border border-white/[0.07] overflow-hidden shadow-xl transition-all duration-300">
+    <div className="rounded-xl bg-[#171A21] border border-white/[0.07] overflow-hidden shadow-2xl transition-all duration-300">
+      {/* Top Application Bar */}
+      <div className="flex items-center justify-between px-4 sm:px-5 py-3 border-b border-white/[0.06] bg-[#14171F]">
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5" aria-hidden="true">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]/80" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]/80" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]/80" />
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-[13px] font-medium text-white/90 tracking-[-0.01em]">
+              {product.name}
+            </span>
+            <span className="text-white/20 text-[11px] hidden sm:inline">·</span>
+            <span className="text-[12px] text-white/40 hidden sm:inline font-normal">
+              Demonstração Interativa
+            </span>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 text-[11px] text-white/50 font-normal">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/90 animate-pulse" />
+            <span>Ativo</span>
+          </div>
+        </div>
+      </div>
+
       {/* Metrics Row — 3 Key Indicators */}
       <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/[0.06] border-b border-white/[0.06] bg-[#141720]">
         {product.metrics.map((m) => (
@@ -231,16 +324,13 @@ function ProductPanel({ product }: { product: Product }) {
         ))}
       </div>
 
-      {/* Content: Image Preview or Data Table */}
+      {/* Content: Interactive Image Preview with Scroll Animation or Data Table Fallback */}
       {product.image ? (
-        <div className="relative aspect-[16/9] w-full bg-[#111318] overflow-hidden">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={product.image}
-            alt={`${product.name} Preview`}
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
+        <InteractiveImagePreview
+          src={product.image}
+          alt={`${product.name} Preview`}
+          productName={product.name}
+        />
       ) : (
         /* Data Table Fallback */
         <div className="overflow-x-auto bg-[#171A21]">
@@ -340,6 +430,14 @@ function ProductShowcase({
 export default function HomePage() {
   const [activeProduct, setActiveProduct] = useState(0);
   const currentProduct = PRODUCTS[activeProduct] ?? PRODUCTS[0]!;
+
+  const showcaseRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: showcaseRef,
+    offset: ["start end", "center center"],
+  });
+  const rotateX = useTransform(scrollYProgress, [0, 1], [6, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.97, 1]);
 
   return (
     <div className="min-h-screen bg-[#08090D] text-white selection:bg-primary/30 selection:text-white overflow-x-hidden">
@@ -470,8 +568,14 @@ export default function HomePage() {
 
           </div>
 
-          {/* Product Switcher */}
+          {/* Product Switcher with Scroll Elevation Animation */}
           <motion.div
+            ref={showcaseRef}
+            style={{
+              perspective: 1200,
+              rotateX,
+              scale,
+            }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.3 }}
@@ -679,13 +783,14 @@ export default function HomePage() {
 
                   {/* Right Column: Floating Preview Image / UI Container */}
                   <div className="sm:col-span-5 relative flex items-center justify-center">
-                    <div className="relative w-full aspect-[16/10] rounded-xl bg-[#0D1017] border border-white/[0.08] shadow-2xl transform group-hover:scale-[1.02] group-hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col justify-between">
+                    <div className="relative w-full aspect-[21/10] sm:aspect-[16/10] rounded-xl bg-[#0B0D13] border border-white/[0.08] shadow-2xl transform group-hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col justify-between">
                       {p.image ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={p.image}
                           alt={`${p.name} preview`}
-                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                          className="w-full h-full object-contain object-center transition-all duration-500"
+                          style={{ imageRendering: "-webkit-optimize-contrast" }}
                         />
                       ) : (
                         /* Minimalist Software Preview Blueprint Frame */
