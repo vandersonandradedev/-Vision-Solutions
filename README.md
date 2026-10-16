@@ -96,5 +96,4 @@ todas devem re-direcionar a mesma instância do `VisionSystem`.
 
 `src/data/contact.ts` contém valores de exemplo claramente marcados —
 substitua por email/telefone/redes reais antes de publicar. Os produtos em
-`src/data/saas-products.ts` (TorqueOS, SynDent, BarberCRM, DisparoFlow,
-AdvCargo) são os reais informados no briefing, sem métricas inventadas.
+`src/data/saas-products.ts` (TorqueOS, BarberCRM, Retail-OS, MesoGo) são os reais informados no briefing, sem métricas inventadas.

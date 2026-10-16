@@ -6,7 +6,7 @@ const FRONTS = [
   {
     label: "Produtos Próprios",
     title: "Multi-SaaS ecosystem",
-    items: ["TorqueOS", "SynDent", "BarberCRM"],
+    items: ["TorqueOS", "BarberCRM", "Retail-OS", "MesoGo"],
   },
   {
     label: "Engenharia Sob Demanda",

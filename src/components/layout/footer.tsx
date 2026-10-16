@@ -3,10 +3,9 @@ import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 
 const PRODUCTS = [
   { label: "TorqueOS", sub: "ERP Automotivo", href: "/produtos" },
-  { label: "SynDent", sub: "SaaS Odontológico", href: "/produtos" },
-  { label: "DisparoFlow", sub: "Mensageria WhatsApp", href: "/produtos" },
-  { label: "BarberCRM", sub: "Gestão de Barbearias", href: "/produtos" },
-  { label: "AdvCargo", sub: "Gestão Jurídica", href: "/produtos" },
+  { label: "BarberCRM", sub: "Gestão para Barbearias", href: "/produtos" },
+  { label: "Retail-OS", sub: "ERP Varejo & Comércio", href: "/produtos" },
+  { label: "MesoGo", sub: "Logística & Gestão", href: "/produtos" },
 ];
 
 const COMPANY = [

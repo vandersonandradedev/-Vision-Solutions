@@ -23,54 +23,118 @@ const PRODUCTS = [
     description:
       "Multi-empresa, com Ordens de Serviço, controle de estoque de peças, financeiro integrado e app desktop Electron para uso sem navegador nos balcões.",
     stack: ["Next.js 15", "NestJS", "Prisma", "PostgreSQL", "Redis", "BullMQ", "Electron"],
+    image: undefined as string | undefined,
     metrics: [
-      { label: "O.S. ativas", value: "18", delta: "+12%" },
-      { label: "Peças em estoque", value: "247", delta: "+8%" },
-      { label: "Faturamento/mês", value: "R$ 42.380", delta: "+15%" },
+      { label: "Módulos", value: "OS & Estoque", delta: "Core" },
+      { label: "Aplicação", value: "Web & Desktop", delta: "Electron" },
+      { label: "Arquitetura", value: "Multi-empresa", delta: "NestJS" },
     ],
-    tableHeaders: ["O.S.", "Cliente", "Veículo", "Status", "Valor"],
+    tableHeaders: ["Módulo", "Operação", "Recurso", "Status", "Tipo"],
     tableRows: [
-      { id: "#00128", col2: "João Silva", col3: "Honda Civic", status: "Em andamento", statusColor: "blue" as const, col5: "R$ 480" },
-      { id: "#00127", col2: "Maria Souza", col3: "Fiat Uno", status: "Aguardando peça", statusColor: "amber" as const, col5: "R$ 120" },
-      { id: "#00126", col2: "Carlos Lima", col3: "VW Gol", status: "Finalizado", statusColor: "emerald" as const, col5: "R$ 260" },
-      { id: "#00125", col2: "Ana Costa", col3: "Toyota Corolla", status: "Em andamento", statusColor: "blue" as const, col5: "R$ 670" },
+      { id: "OS-01", col2: "Ordens de Serviço", col3: "Abertura e fluxo de oficina", status: "Em andamento", statusColor: "blue" as const, col5: "Core" },
+      { id: "EST-02", col2: "Estoque de Peças", col3: "Alerta de reposição mínima", status: "Integrado", statusColor: "emerald" as const, col5: "Estoque" },
+      { id: "FIN-03", col2: "Financeiro", col3: "Recebimentos por OS", status: "Conciliado", statusColor: "emerald" as const, col5: "Fiscal" },
+      { id: "DSK-04", col2: "App Balcão", col3: "Operação local contínua", status: "Produção", statusColor: "blue" as const, col5: "Electron" },
     ],
     features: [
       "Ordens de Serviço com status em tempo real",
-      "Estoque de peças com alerta de mínimo",
-      "Financeiro: recebimentos e despesas por OS",
-      "App desktop Electron para balcão",
-      "Relatórios: faturamento, técnicos, tempo de OS",
+      "Estoque de peças com alerta de reposição mínima",
+      "Financeiro: recebimentos e despesas vinculados à OS",
+      "App desktop Electron para operação de balcão",
+      "Relatórios operacionais: faturamento, técnicos e tempo de OS",
     ],
   },
   {
-    id: "syndent",
-    name: "SynDent",
-    category: "SaaS Odontológico",
-    badge: "SaaS",
-    color: "violet" as const,
-    tagline: "Prontuário clínico, agenda e financeiro para clínicas odontológicas.",
+    id: "barbercrm",
+    name: "BarberCRM",
+    category: "CRM para Barbearias",
+    badge: "CRM",
+    color: "amber" as const,
+    tagline: "Agendamento online, fidelidade com pontos e notificações automáticas.",
     description:
-      "Multi-tenant com isolamento completo por clínica. Inclui prontuário digital, odontograma interativo, agendamento online, financeiro e relatórios.",
-    stack: ["Next.js 15", "Fastify", "Prisma", "PostgreSQL", "Redis", "BullMQ", "MinIO"],
+      "Solução completa para gestão de barbearias e estética masculina. Inclui agenda pública por profissional, programa de fidelidade VIP, disparo WhatsApp via Evolution API e relatórios financeiros.",
+    stack: ["Next.js 15", "NestJS", "PostgreSQL", "Prisma", "Evolution API", "Redis"],
+    image: "/images/barbercrm-preview.jpg",
     metrics: [
-      { label: "Pacientes hoje", value: "21", delta: "+3" },
-      { label: "Clínicas ativas", value: "5", delta: "piloto" },
-      { label: "Consultas/sem.", value: "142", delta: "+22%" },
+      { label: "Agendamentos", value: "Online 24/7", delta: "Multi-barbeiro" },
+      { label: "Fidelidade", value: "Cashback & Pontos", delta: "VIP" },
+      { label: "Notificações", value: "WhatsApp API", delta: "Evolution" },
     ],
-    tableHeaders: ["Hora", "Paciente", "Dentista", "Procedimento", "Status"],
+    tableHeaders: ["Horário", "Cliente", "Profissional", "Serviço", "Status"],
     tableRows: [
-      { id: "09:00", col2: "Mariana Costa", col3: "Dra. Beatriz", status: "Endodontia", statusColor: "violet" as const, col5: "Em andamento" },
-      { id: "09:40", col2: "Rafael Lima", col3: "Dr. Henrique", status: "Alinhadores 3D", statusColor: "blue" as const, col5: "Agendado" },
-      { id: "10:20", col2: "Juliana Santos", col3: "Dra. Camila", status: "Clareamento", statusColor: "emerald" as const, col5: "Finalizado" },
-      { id: "11:00", col2: "Pedro Alves", col3: "Dr. Ricardo", status: "Implante", statusColor: "amber" as const, col5: "Confirmado" },
+      { id: "14:00", col2: "Rodrigo Silva", col3: "Marcos Lima", status: "Corte & Barba", statusColor: "amber" as const, col5: "Confirmado" },
+      { id: "14:45", col2: "Lucas Santos", col3: "Gabriel Dias", status: "Corte Degradê", statusColor: "blue" as const, col5: "Em atendimento" },
+      { id: "15:30", col2: "Felipe Andrade", col3: "Marcos Lima", status: "Barboterapia", statusColor: "emerald" as const, col5: "Finalizado" },
+      { id: "16:15", col2: "Thiago Rocha", col3: "Gabriel Dias", status: "Plano Mensal", statusColor: "amber" as const, col5: "Confirmado" },
     ],
     features: [
-      "Prontuário clínico digital com histórico",
-      "Odontograma interativo por dente",
-      "Agendamento online com confirmação",
-      "Multi-tenant com isolamento de schema",
-      "Financeiro e relatórios por clínica",
+      "Agendamento online por profissional e serviço",
+      "Disparo automático de lembretes e confirmações no WhatsApp",
+      "Programa de fidelidade e pontos por frequência",
+      "Gestão de comissões por barbeiro em tempo real",
+      "Controle financeiro de caixa, comandas e faturamento",
+    ],
+  },
+  {
+    id: "retail-os",
+    name: "Retail-OS",
+    category: "ERP para Varejo e Comércio",
+    badge: "ERP",
+    color: "emerald" as const,
+    tagline: "Ponto de Venda ágil, controle de grade e gestão multi-loja.",
+    description:
+      "Plataforma de gestão comercial desenhada para redes varejistas e lojas com alta rotatividade de inventário. Sincronização centralizada de estoque, emissão fiscal e frente de caixa veloz.",
+    stack: ["Next.js 15", "NestJS", "PostgreSQL", "Prisma", "Redis", "BullMQ"],
+    image: undefined as string | undefined,
+    metrics: [
+      { label: "Frente de Caixa", value: "PDV Ágil", delta: "Online/Offline" },
+      { label: "Inventário", value: "Grade & SKU", delta: "Sincronizado" },
+      { label: "Operação", value: "Multi-loja", delta: "Centralizado" },
+    ],
+    tableHeaders: ["Código", "Item / Produto", "Variação", "Estoque", "Status"],
+    tableRows: [
+      { id: "SKU-902", col2: "Camiseta Dry Tech", col3: "Tam: G / Preto", status: "142 un", statusColor: "emerald" as const, col5: "Normal" },
+      { id: "SKU-903", col2: "Camiseta Dry Tech", col3: "Tam: M / Branco", status: "12 un", statusColor: "amber" as const, col5: "Alerta Mín." },
+      { id: "SKU-814", col2: "Bermuda Compression", col3: "Tam: 42 / Grafite", status: "88 un", statusColor: "emerald" as const, col5: "Normal" },
+      { id: "SKU-770", col2: "Meia Performance", col3: "Tam: Único / Azul", status: "320 un", statusColor: "blue" as const, col5: "Estoque Alto" },
+    ],
+    features: [
+      "PDV ultrarrápido para operação de balcão e checkout",
+      "Controle minucioso de grade (cor, tamanho e lote)",
+      "Gestão de estoque central e transferências entre filiais",
+      "Emissão fiscal simplificada integrada ao fluxo de vendas",
+      "DRE gerencial e métricas de ticket médio em tempo real",
+    ],
+  },
+  {
+    id: "meso-go",
+    name: "MesoGo",
+    category: "Logística & Gestão Operacional",
+    badge: "LOGÍSTICA",
+    color: "violet" as const,
+    tagline: "Roteirização inteligente, expedição e rastreio de cargas.",
+    description:
+      "Sistema de orquestração logística para distribuidores e transportadoras. Otimização de rotas de entrega, monitoramento de frotas e comprovantes de entrega digitais.",
+    stack: ["Next.js 15", "Go", "PostgreSQL", "Redis", "BullMQ", "Mapbox"],
+    image: undefined as string | undefined,
+    metrics: [
+      { label: "Rotas", value: "Otimização IA", delta: "Algorítmico" },
+      { label: "Expedição", value: "Manifesto Digital", delta: "Tempo Real" },
+      { label: "Comprovantes", value: "Assinatura Digital", delta: "Paperless" },
+    ],
+    tableHeaders: ["Remessa", "Destinatário", "Rota", "Previsão", "Status"],
+    tableRows: [
+      { id: "REM-401", col2: "Distribuidora Atlas", col3: "Rota Centro-Sul", status: "Em rota", statusColor: "violet" as const, col5: "No prazo" },
+      { id: "REM-402", col2: "Supermercado Alfa", col3: "Rota Express Norte", status: "Entregue", statusColor: "emerald" as const, col5: "Assinado" },
+      { id: "REM-403", col2: "Depósito Industrial", col3: "Rota Leste Carga", status: "Carregando", statusColor: "amber" as const, col5: "Doca 04" },
+      { id: "REM-404", col2: "Farmácia Central", col3: "Rota Express Noturna", status: "Programado", statusColor: "blue" as const, col5: "Aguardando" },
+    ],
+    features: [
+      "Roteirização inteligente com múltiplos pontos de parada",
+      "Manifesto eletrônico de carga e documentação fiscal",
+      "Rastreamento de entrega com link seguro para o cliente",
+      "Comprovante digital com foto e geolocalização no ato da entrega",
+      "Telemetria de performance operacional da frota",
     ],
   },
 ] as const;
@@ -86,43 +150,43 @@ const STATUS_COLORS: Record<string, string> = {
 
 const ECOSYSTEM = [
   {
-    id: "disparoflow",
-    name: "DisparoFlow",
-    category: "Mensageria Enterprise",
-    desc: "Campanhas WhatsApp multi-tenant com filas NATS/BullMQ, aquecimento inteligente de chips, tracking de conversão e analytics em tempo real.",
-    stack: ["NestJS", "BullMQ", "NATS", "Redis", "Next.js 15"],
-    accent: "text-emerald-400",
-    accentBg: "bg-emerald-500/10 border-emerald-500/20",
-    image: undefined as string | undefined, // Pass string image path here anytime (e.g. "/images/disparoflow.png")
+    id: "torqueos",
+    name: "TorqueOS",
+    category: "ERP Automotivo",
+    desc: "Multi-empresa com Ordens de Serviço, controle de estoque de peças, financeiro integrado e app desktop Electron para uso sem navegador nos balcões.",
+    stack: ["Next.js 15", "NestJS", "Prisma", "PostgreSQL", "Electron"],
+    accent: "text-blue-400",
+    accentBg: "bg-blue-500/10 border-blue-500/20",
+    image: undefined as string | undefined,
   },
   {
     id: "barbercrm",
     name: "BarberCRM",
-    category: "Gestão de Barbearias",
-    desc: "CRM completo com agendamento online, fidelidade com pontos, notificações WhatsApp via Evolution API e relatórios financeiros.",
-    stack: ["Next.js", "NestJS", "PostgreSQL", "Prisma", "Evolution API"],
+    category: "CRM para Barbearias",
+    desc: "CRM completo com agendamento online 24/7, fidelidade com pontos, notificações automáticas no WhatsApp via Evolution API e gestão financeira.",
+    stack: ["Next.js 15", "NestJS", "PostgreSQL", "Prisma", "Evolution API"],
     accent: "text-amber-400",
     accentBg: "bg-amber-500/10 border-amber-500/20",
+    image: "/images/barbercrm-preview.jpg",
+  },
+  {
+    id: "retail-os",
+    name: "Retail-OS",
+    category: "ERP para Varejo e Comércio",
+    desc: "Ponto de Venda (PDV) ágil, controle de grade avançado (tamanho/cor/lote), gestão central de estoque multi-loja e faturamento integrado.",
+    stack: ["Next.js 15", "NestJS", "PostgreSQL", "Prisma", "BullMQ"],
+    accent: "text-emerald-400",
+    accentBg: "bg-emerald-500/10 border-emerald-500/20",
     image: undefined as string | undefined,
   },
   {
-    id: "advcargo",
-    name: "AdvCargo",
-    category: "Gestão Jurídica",
-    desc: "Sistema para advogados: processos, prazos, audiências, financeiro e relatórios. HTTPS obrigatório com HSTS em toda a stack.",
-    stack: ["React", "Vite", "Express", "PostgreSQL", "Prisma"],
-    accent: "text-slate-300",
-    accentBg: "bg-slate-500/10 border-slate-500/20",
-    image: undefined as string | undefined,
-  },
-  {
-    id: "esperaai",
-    name: "EsperaAí",
-    category: "Inteligência de Preços",
-    desc: "Monitoramento de preços com histórico e recomendação de compra. Workers BullMQ para scraping contínuo e alertas de queda.",
-    stack: ["Next.js", "Fastify", "BullMQ", "Redis", "PostgreSQL"],
-    accent: "text-sky-400",
-    accentBg: "bg-sky-500/10 border-sky-500/20",
+    id: "meso-go",
+    name: "MesoGo",
+    category: "Logística & Gestão Operacional",
+    desc: "Roteirização inteligente de frotas, orquestração de entregas em tempo real, manifesto digital e telemetria operacional de cargas.",
+    stack: ["Next.js 15", "Go", "PostgreSQL", "Redis", "BullMQ"],
+    accent: "text-violet-400",
+    accentBg: "bg-violet-500/10 border-violet-500/20",
     image: undefined as string | undefined,
   },
 ];
@@ -180,31 +244,43 @@ function ProductPanel({ product }: { product: Product }) {
         ))}
       </div>
 
-      {/* Table */}
-      <div className="overflow-x-auto bg-[#161C2B]">
-        <table className="w-full text-[11px] font-mono">
-          <thead>
-            <tr className="border-b border-white/[0.08] bg-[#131826]/50">
-              {product.tableHeaders.map((h) => (
-                <th key={h} className="px-4 py-2.5 text-left text-[10px] text-white/40 uppercase tracking-wider font-medium">{h}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-white/[0.05]">
-            {product.tableRows.map((row, i) => (
-              <tr key={i} className="hover:bg-white/[0.04] transition-colors duration-200">
-                <td className="px-4 py-2.5 text-white/50">{row.id}</td>
-                <td className="px-4 py-2.5 text-white/90 font-medium">{row.col2}</td>
-                <td className="px-4 py-2.5 text-white/55">{row.col3}</td>
-                <td className="px-4 py-2.5">
-                  <span className={`px-2 py-0.5 rounded border text-[10px] ${STATUS_COLORS[row.statusColor] ?? ""}`}>{row.status}</span>
-                </td>
-                <td className="px-4 py-2.5 text-white/70">{row.col5}</td>
+      {/* Content: Image or Table */}
+      {product.image ? (
+        <div className="relative aspect-[16/9] w-full bg-[#0F131E] overflow-hidden group">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={product.image}
+            alt={`${product.name} Preview`}
+            className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
+          />
+        </div>
+      ) : (
+        /* Table */
+        <div className="overflow-x-auto bg-[#161C2B]">
+          <table className="w-full text-[11px] font-mono">
+            <thead>
+              <tr className="border-b border-white/[0.08] bg-[#131826]/50">
+                {product.tableHeaders.map((h) => (
+                  <th key={h} className="px-4 py-2.5 text-left text-[10px] text-white/40 uppercase tracking-wider font-medium">{h}</th>
+                ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody className="divide-y divide-white/[0.05]">
+              {product.tableRows.map((row, i) => (
+                <tr key={i} className="hover:bg-white/[0.04] transition-colors duration-200">
+                  <td className="px-4 py-2.5 text-white/50">{row.id}</td>
+                  <td className="px-4 py-2.5 text-white/90 font-medium">{row.col2}</td>
+                  <td className="px-4 py-2.5 text-white/55">{row.col3}</td>
+                  <td className="px-4 py-2.5">
+                    <span className={`px-2 py-0.5 rounded border text-[10px] ${STATUS_COLORS[row.statusColor] ?? ""}`}>{row.status}</span>
+                  </td>
+                  <td className="px-4 py-2.5 text-white/70">{row.col5}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }
@@ -428,7 +504,13 @@ export default function HomePage() {
                   <span className="relative">
                     {p.name}
                     <span className={`ml-1.5 text-[10px] font-mono opacity-70 ${
-                      p.color === "violet" ? "text-violet-400" : "text-blue-400"
+                      p.color === "violet"
+                        ? "text-violet-400"
+                        : p.color === "amber"
+                        ? "text-amber-400"
+                        : p.color === "emerald"
+                        ? "text-emerald-400"
+                        : "text-blue-400"
                     }`}>
                       [{p.badge}]
                     </span>
@@ -541,8 +623,8 @@ export default function HomePage() {
 
           <div className="border-t border-white/[0.08]" />
 
-          {/* SynDent */}
-          <ProductShowcase product={PRODUCTS[1]!} reverse accentColor="text-violet-400" accentInitial="SD" />
+          {/* BarberCRM */}
+          <ProductShowcase product={PRODUCTS[1]!} reverse accentColor="text-amber-400" accentInitial="BC" />
 
         </div>
       </section>
@@ -601,82 +683,40 @@ export default function HomePage() {
 
                   {/* Right Column: Floating Preview Image / UI Container */}
                   <div className="sm:col-span-5 relative flex items-center justify-center">
-                    <div className="relative w-full aspect-[4/3] rounded-xl bg-[#111522] border border-white/[0.12] p-3 shadow-2xl transform group-hover:scale-[1.03] group-hover:-translate-y-1.5 group-hover:rotate-0 -rotate-1 transition-all duration-500 overflow-hidden flex flex-col justify-between">
+                    <div className="relative w-full aspect-[16/10] rounded-xl bg-[#0F131E] border border-white/[0.12] shadow-2xl transform group-hover:scale-[1.03] group-hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col justify-between">
                       {p.image ? (
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img src={p.image} alt={p.name} className="w-full h-full object-cover rounded-lg border border-white/10" />
+                        <img
+                          src={p.image}
+                          alt={`${p.name} preview`}
+                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                        />
                       ) : (
-                        /* Styled Floating SaaS Mini Mockup */
-                        <div className="h-full flex flex-col justify-between font-mono text-[10px] space-y-2">
-                          {/* Mini Header Bar */}
-                          <div className="flex items-center justify-between pb-1.5 border-b border-white/[0.08]">
+                        /* Minimalist Software Preview Blueprint Frame */
+                        <div className="h-full w-full p-4 flex flex-col justify-between font-mono text-[10px] bg-gradient-to-br from-[#141A29] to-[#0D111A]">
+                          {/* Window Bar */}
+                          <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
                             <div className="flex items-center gap-1.5">
-                              <span className="w-2 h-2 rounded-full bg-rose-500/80" />
-                              <span className="w-2 h-2 rounded-full bg-amber-500/80" />
-                              <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
+                              <span className="w-2 h-2 rounded-full bg-[#FF5F57]" />
+                              <span className="w-2 h-2 rounded-full bg-[#FFBD2E]" />
+                              <span className="w-2 h-2 rounded-full bg-[#28C840]" />
                             </div>
-                            <span className="text-white/40 text-[9px] truncate max-w-[80px]">{p.id}</span>
+                            <span className="text-white/40 text-[9px] uppercase tracking-wider">{p.name}</span>
                           </div>
 
-                          {/* Dynamic Custom Mini Visuals per Product */}
-                          {p.id === "disparoflow" && (
-                            <div className="space-y-1.5">
-                              <div className="flex justify-between items-center text-slate-300">
-                                <span className="text-emerald-400 font-semibold">● Fila NATS</span>
-                                <span className="text-white/40 text-[9px]">99.4%</span>
-                              </div>
-                              <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                                <div className="bg-emerald-400 h-full w-[94%]" />
-                              </div>
-                              <div className="bg-[#171E2E] p-1.5 rounded text-[9px] text-slate-300 truncate">
-                                +55 11 98... <span className="text-emerald-400">Entregue</span>
-                              </div>
+                          {/* Center UI Preview Blueprint */}
+                          <div className="my-auto py-3 px-2 flex flex-col items-center justify-center text-center space-y-2">
+                            <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-white/50 group-hover:border-white/20 transition-colors">
+                              <span className="text-xs font-bold font-mono text-white/80">{p.name.slice(0, 2).toUpperCase()}</span>
                             </div>
-                          )}
+                            <div className="text-[12px] font-sans font-medium text-white/90">{p.name}</div>
+                            <div className="text-[10px] text-white/40 font-mono">Interface de Operação</div>
+                          </div>
 
-                          {p.id === "barbercrm" && (
-                            <div className="space-y-1.5">
-                              <div className="flex justify-between items-center">
-                                <span className="text-amber-400 font-semibold">● Agenda Hoje</span>
-                                <span className="text-white/40 text-[9px]">8 Slots</span>
-                              </div>
-                              <div className="bg-[#171E2E] p-1.5 rounded text-[9px] text-slate-300 space-y-0.5">
-                                <div className="text-white font-medium">14:00 Rodrigo S.</div>
-                                <div className="text-amber-400 text-[8px]">Corte &amp; Barba · Confirmado</div>
-                              </div>
-                            </div>
-                          )}
-
-                          {p.id === "advcargo" && (
-                            <div className="space-y-1.5">
-                              <div className="flex justify-between items-center">
-                                <span className="text-slate-300 font-semibold">● Proc. 00249</span>
-                                <span className="text-blue-400 text-[9px]">HSTS OK</span>
-                              </div>
-                              <div className="bg-[#171E2E] p-1.5 rounded text-[9px] text-slate-300 space-y-0.5">
-                                <div className="text-white font-medium">Audiência de Conciliação</div>
-                                <div className="text-blue-400 text-[8px]">Hoje às 15:30h · 1ª Vara</div>
-                              </div>
-                            </div>
-                          )}
-
-                          {p.id === "esperaai" && (
-                            <div className="space-y-1.5">
-                              <div className="flex justify-between items-center">
-                                <span className="text-sky-400 font-semibold">● Preço Mínimo</span>
-                                <span className="text-emerald-400 text-[9px]">-14%</span>
-                              </div>
-                              <div className="bg-[#171E2E] p-1.5 rounded text-[9px] text-slate-300 flex items-end justify-between gap-1 h-8">
-                                {[40, 65, 50, 80, 45, 90, 70].map((h, idx) => (
-                                  <div key={idx} style={{ height: `${h}%` }} className="w-full bg-gradient-to-t from-sky-500 to-cyan-400 rounded-t-sm" />
-                                ))}
-                              </div>
-                            </div>
-                          )}
-
-                          {/* Footer Tag */}
-                          <div className="text-[8px] text-white/30 text-right pt-0.5">
-                            preview.live
+                          {/* Footer Bar */}
+                          <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between text-[9px] text-white/40">
+                            <span>{p.category}</span>
+                            <span className="text-white/30 font-mono">software.live</span>
                           </div>
                         </div>
                       )}
