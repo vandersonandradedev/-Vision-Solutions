@@ -66,18 +66,18 @@ export default function TecnologiaPage() {
       />
 
       {/* Layer Architecture Pipeline */}
-      <section className="px-6 py-20 sm:py-28">
-        <div className="max-w-7xl mx-auto space-y-12">
-          <div className="space-y-3">
+      <section className="px-5 sm:px-6 py-14 sm:py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto space-y-10 sm:space-y-12">
+          <div className="space-y-2.5 sm:space-y-3">
             <span className="text-[11px] font-medium text-white/50 uppercase tracking-widest">
               Topologia do Sistema
             </span>
-            <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white tracking-tight">
+            <h2 className="text-[clamp(1.7rem,3.5vw,2.5rem)] font-bold text-white tracking-tight leading-[1.15]">
               Cinco camadas de isolamento e responsabilidade única.
             </h2>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {techLayers.map((layer, i) => {
               const detail = LAYER_DETAILS[i];
               const Icon = detail?.icon ?? Layers;
@@ -85,10 +85,10 @@ export default function TecnologiaPage() {
               return (
                 <div
                   key={layer.label}
-                  className="rounded-2xl bg-[#14171F] border border-white/[0.08] hover:border-white/[0.16] p-7 sm:p-9 transition-all duration-300 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+                  className="rounded-2xl bg-[#14171F] border border-white/[0.08] hover:border-white/[0.16] p-5 sm:p-7 lg:p-9 transition-all duration-300 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-center"
                 >
-                  <div className="lg:col-span-4 space-y-3">
-                    <div className="flex items-center gap-3">
+                  <div className="lg:col-span-4 space-y-2.5 sm:space-y-3">
+                    <div className="flex items-center gap-2.5 sm:gap-3">
                       <span className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/[0.1] flex items-center justify-center text-xs font-mono font-bold text-primary-soft">
                         {layer.label}
                       </span>
@@ -96,22 +96,22 @@ export default function TecnologiaPage() {
                         {detail?.role}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-white tracking-tight">
+                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
                       {layer.title}
                     </h3>
                   </div>
 
                   <div className="lg:col-span-5">
-                    <p className="text-[14px] text-white/60 leading-relaxed">
+                    <p className="text-[13.5px] sm:text-[14px] text-white/60 leading-relaxed">
                       {detail?.desc}
                     </p>
                   </div>
 
-                  <div className="lg:col-span-3 flex flex-wrap gap-2 lg:justify-end">
+                  <div className="lg:col-span-3 flex flex-wrap gap-1.5 sm:gap-2 lg:justify-end">
                     {layer.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 rounded-md text-[11px] font-mono font-medium text-white/75 bg-white/[0.04] border border-white/[0.08]"
+                        className="px-2.5 py-1 rounded-md text-[10.5px] sm:text-[11px] font-mono font-medium text-white/75 bg-white/[0.04] border border-white/[0.08]"
                       >
                         {tech}
                       </span>
@@ -125,30 +125,30 @@ export default function TecnologiaPage() {
       </section>
 
       {/* Architectural Guarantees Grid */}
-      <section className="px-6 py-20 sm:py-28 border-t border-white/[0.07] bg-[#0A0D13]">
-        <div className="max-w-7xl mx-auto space-y-14">
+      <section className="px-5 sm:px-6 py-14 sm:py-20 lg:py-28 border-t border-white/[0.07] bg-[#0A0D13]">
+        <div className="max-w-7xl mx-auto space-y-10 sm:space-y-14">
           <div className="space-y-3 max-w-2xl">
             <span className="text-[11px] font-medium text-white/50 uppercase tracking-widest">
               Garantias Técnicas
             </span>
-            <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white tracking-tight">
+            <h2 className="text-[clamp(1.7rem,3.5vw,2.5rem)] font-bold text-white tracking-tight leading-[1.15]">
               Padrões inegociáveis de qualidade de software.
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {ARCHITECTURAL_PRINCIPLES.map((principle) => (
               <div
                 key={principle.title}
-                className="rounded-xl bg-[#14171F] border border-white/[0.07] p-7 space-y-3 hover:border-white/[0.14] transition-all duration-300"
+                className="rounded-xl bg-[#14171F] border border-white/[0.07] p-5 sm:p-7 space-y-2.5 sm:space-y-3 hover:border-white/[0.14] transition-all duration-300"
               >
                 <div className="flex items-center gap-2 text-primary-soft">
-                  <ShieldCheck className="w-5 h-5" />
-                  <h3 className="text-[16px] font-bold text-white tracking-tight">
+                  <ShieldCheck className="w-5 h-5 shrink-0" />
+                  <h3 className="text-[15px] sm:text-[16px] font-bold text-white tracking-tight">
                     {principle.title}
                   </h3>
                 </div>
-                <p className="text-[14px] text-white/55 leading-relaxed">
+                <p className="text-[13.5px] sm:text-[14px] text-white/55 leading-relaxed">
                   {principle.desc}
                 </p>
               </div>
@@ -158,22 +158,22 @@ export default function TecnologiaPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="px-6 py-24 sm:py-32 border-t border-white/[0.07]">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h2 className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-bold text-white tracking-tight">
+      <section className="px-5 sm:px-6 py-16 sm:py-24 lg:py-32 border-t border-white/[0.07]">
+        <div className="max-w-4xl mx-auto text-center space-y-5 sm:space-y-6">
+          <h2 className="text-[clamp(1.7rem,3.5vw,2.6rem)] font-bold text-white tracking-tight leading-[1.15]">
             Quer discutir a arquitetura da sua operação?
           </h2>
-          <p className="text-[15px] text-white/60 leading-relaxed max-w-xl mx-auto">
+          <p className="text-[14px] sm:text-[15px] text-white/60 leading-relaxed max-w-xl mx-auto">
             Nossos engenheiros podem avaliar seu fluxo atual de dados e desenhar um plano de engenharia sob medida.
           </p>
           <div className="pt-2">
             <Link
               href="/contato"
-              className="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-primary hover:bg-primary-dim text-white text-[14px] font-semibold tracking-[-0.01em] transition-all duration-300 shadow-md"
+              className="group flex sm:inline-flex items-center justify-center gap-3 px-6 py-3 rounded-full bg-primary hover:bg-primary-dim text-white text-[13.5px] font-semibold tracking-[-0.01em] transition-all duration-300 shadow-md w-full sm:w-auto"
             >
               <span>Conversar sobre engenharia</span>
-              <div className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-200">
-                <ArrowUpRight className="w-4 h-4 text-white" />
+              <div className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-200">
+                <ArrowUpRight className="w-3.5 h-3.5 text-white" />
               </div>
             </Link>
           </div>

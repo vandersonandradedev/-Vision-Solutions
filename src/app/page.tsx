@@ -214,32 +214,6 @@ const PRINCIPLES = [
 function ProductPanel({ product }: { product: Product }) {
   return (
     <div className="rounded-xl bg-[#171A21] border border-white/[0.07] overflow-hidden shadow-xl transition-all duration-300">
-      {/* Top Application Bar */}
-      <div className="flex items-center justify-between px-4 sm:px-5 py-3 border-b border-white/[0.06] bg-[#14171F]">
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1.5" aria-hidden="true">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]/80" />
-            <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]/80" />
-            <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]/80" />
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-[13px] font-medium text-white/90 tracking-[-0.01em]">
-              {product.name}
-            </span>
-            <span className="text-white/20 text-[11px] hidden sm:inline">·</span>
-            <span className="text-[12px] text-white/40 hidden sm:inline font-normal">
-              Demonstração interativa
-            </span>
-          </div>
-        </div>
-
-        {/* Discreet Status Indicator */}
-        <div className="flex items-center gap-1.5 text-[11px] text-white/50 font-normal">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/90" />
-          <span>Ativo</span>
-        </div>
-      </div>
-
       {/* Metrics Row — 3 Key Indicators */}
       <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/[0.06] border-b border-white/[0.06] bg-[#141720]">
         {product.metrics.map((m) => (
@@ -373,7 +347,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════════
           1. HERO — Experience
       ═══════════════════════════════════════════════════════ */}
-      <section className="relative pt-20 sm:pt-28 pb-20 px-6">
+      <section className="relative pt-12 sm:pt-20 lg:pt-28 pb-14 sm:pb-20 px-5 sm:px-6">
         {/* Architectural grid */}
         <div
           className="absolute inset-0 pointer-events-none opacity-40"
@@ -390,29 +364,29 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto relative">
 
           {/* Upper Hero Grid: Text Left, Floating Sphere Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center mb-10 sm:mb-12">
             
             {/* Left Column: Typography & CTAs */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-5 sm:space-y-6">
               {/* Label */}
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="flex items-center gap-3"
+                className="flex flex-wrap items-center gap-2 sm:gap-3"
               >
-                <span className="inline-flex items-center gap-2 text-[11px] font-mono text-white/40 uppercase tracking-[0.2em] font-medium">
-                  <span className="w-5 h-px bg-primary/60" />
+                <span className="inline-flex items-center gap-2 text-[10.5px] sm:text-[11px] font-mono text-white/40 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-medium">
+                  <span className="w-4 sm:w-5 h-px bg-primary/60" />
                   Software House &amp; SaaS Studio
                 </span>
-                <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[10px] font-mono text-white/50">
+                <span className="inline-flex items-center px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[9.5px] sm:text-[10px] font-mono text-white/50">
                   Arquitetura Autoral
                 </span>
               </motion.div>
 
               {/* Headline — word reveal */}
               <div>
-                <h1 className="text-[clamp(2.2rem,4.5vw,3.6rem)] font-bold leading-[1.08] tracking-[-0.03em]">
+                <h1 className="text-[clamp(1.95rem,4.5vw,3.6rem)] font-bold leading-[1.1] tracking-[-0.03em]">
                   <HeroWord text="Construímos software para operações" delay={0.2} />
                   <br />
                   <span className="text-white/50">
@@ -426,7 +400,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
-                className="text-[15px] text-white/60 leading-relaxed max-w-2xl"
+                className="text-[14px] sm:text-[15px] text-white/60 leading-relaxed max-w-2xl"
               >
                 Construímos SaaS verticais e sistemas sob medida para empresas que precisam transformar processos complexos em operação digital estruturada — do prontuário odontológico à ordem de serviço automotiva.
               </motion.p>
@@ -436,11 +410,11 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 1.1 }}
-                className="flex flex-wrap items-center gap-3 pt-2"
+                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-2"
               >
                 <Link
                   href="/produtos"
-                  className="group inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary hover:bg-primary-dim text-white text-[13px] font-medium tracking-[-0.01em] transition-all duration-300 shadow-md shadow-primary/20"
+                  className="group flex sm:inline-flex items-center justify-between sm:justify-center gap-3 px-5 py-3 rounded-full bg-primary hover:bg-primary-dim text-white text-[13px] font-medium tracking-[-0.01em] transition-all duration-300 shadow-md shadow-primary/20 w-full sm:w-auto"
                 >
                   <span>Ver nossos produtos</span>
                   <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
@@ -449,7 +423,7 @@ export default function HomePage() {
                 </Link>
                 <Link
                   href="/contato"
-                  className="group inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#14171F] border border-white/[0.1] text-white/80 text-[13px] font-medium hover:text-white hover:bg-white/[0.08] hover:border-white/[0.18] transition-all duration-300"
+                  className="group flex sm:inline-flex items-center justify-between sm:justify-center gap-3 px-5 py-3 rounded-full bg-[#14171F] border border-white/[0.1] text-white/80 text-[13px] font-medium hover:text-white hover:bg-white/[0.08] hover:border-white/[0.18] transition-all duration-300 w-full sm:w-auto"
                 >
                   <span>Construir um sistema</span>
                   <span className="w-5 h-5 rounded-full bg-white/[0.08] flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
@@ -464,20 +438,20 @@ export default function HomePage() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="lg:col-span-5 relative flex items-center justify-center py-4"
+              className="lg:col-span-5 relative flex items-center justify-center py-2 sm:py-4"
             >
               {/* Subtle ambient light glow behind particle sphere */}
               <div className="absolute inset-4 bg-gradient-to-r from-blue-600/20 via-indigo-500/15 to-cyan-400/20 blur-3xl rounded-full pointer-events-none animate-pulse" />
 
               {/* Floating Particle Sphere Frame */}
-              <div className="relative w-full max-w-sm sm:max-w-md aspect-square flex items-center justify-center bg-transparent">
+              <div className="relative w-full max-w-[260px] sm:max-w-sm aspect-square flex items-center justify-center bg-transparent">
                 <motion.img
                   src="/images/hero-sphere.png"
                   alt="Neural Software Architecture Sphere"
                   initial={{ opacity: 0 }}
                   animate={{
                     opacity: 0.95,
-                    y: [-8, 8, -8],
+                    y: [-6, 6, -6],
                     rotate: [0, 360],
                   }}
                   transition={{
@@ -504,12 +478,12 @@ export default function HomePage() {
             className="space-y-4"
           >
             {/* Tabs */}
-            <div className="flex flex-wrap items-center gap-1 bg-[#14171F] rounded-lg p-1 w-fit border border-white/[0.07]">
+            <div className="flex overflow-x-auto no-scrollbar sm:flex-wrap items-center gap-1 bg-[#14171F] rounded-xl p-1 max-w-full w-full sm:w-fit border border-white/[0.07]">
               {PRODUCTS.map((p, i) => (
                 <button
                   key={p.id}
                   onClick={() => setActiveProduct(i)}
-                  className={`relative px-4 py-1.5 rounded-md text-[12px] font-medium transition-all duration-200 ${
+                  className={`relative shrink-0 sm:shrink px-3.5 sm:px-4 py-2 sm:py-1.5 rounded-lg text-[12px] font-medium transition-all duration-200 ${
                     activeProduct === i
                       ? "text-white font-semibold"
                       : "text-white/45 hover:text-white/75"
@@ -518,13 +492,13 @@ export default function HomePage() {
                   {activeProduct === i && (
                     <motion.span
                       layoutId="product-tab"
-                      className="absolute inset-0 rounded-md bg-white/[0.1]"
+                      className="absolute inset-0 rounded-lg bg-white/[0.1]"
                       transition={{ type: "spring", stiffness: 500, damping: 35 }}
                     />
                   )}
-                  <span className="relative">
+                  <span className="relative flex items-center">
                     {p.name}
-                    <span className={`ml-1.5 text-[10px] font-mono opacity-70 ${
+                    <span className={`ml-1.5 text-[9.5px] sm:text-[10px] font-mono opacity-70 ${
                       p.color === "amber"
                         ? "text-amber-400"
                         : p.color === "emerald"
@@ -558,11 +532,11 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════════
           2. MANIFESTO — Editorial Asymmetric
       ═══════════════════════════════════════════════════════ */}
-      <section className="py-24 px-6 border-t border-white/[0.08]">
+      <section className="py-14 sm:py-20 lg:py-24 px-5 sm:px-6 border-t border-white/[0.08]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
-            <div className="lg:col-span-5 space-y-6">
+            <div className="lg:col-span-5 space-y-4 sm:space-y-6">
               <FadeIn>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-medium text-white/60">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
@@ -570,7 +544,7 @@ export default function HomePage() {
                 </div>
               </FadeIn>
               <FadeIn delay={0.1}>
-                <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold leading-[1.12] tracking-[-0.03em]">
+                <h2 className="text-[clamp(1.7rem,3vw,2.5rem)] font-bold leading-[1.14] tracking-[-0.03em]">
                   Software que resolve o problema real —{" "}
                   <span className="text-white/50">não o problema médio.</span>
                 </h2>
@@ -591,10 +565,10 @@ export default function HomePage() {
               </FadeIn>
             </div>
 
-            <StaggerList className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4" stagger={0.1}>
+            <StaggerList className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4" stagger={0.1}>
               {PRINCIPLES.map((p) => (
                 <StaggerItem key={p.label}>
-                  <div className="group p-5 rounded-xl bg-[#14171F] border border-white/[0.07] space-y-2 hover:bg-[#171A21] hover:border-white/[0.12] transition-all duration-300">
+                  <div className="group p-4 sm:p-5 rounded-xl bg-[#14171F] border border-white/[0.07] space-y-2 hover:bg-[#171A21] hover:border-white/[0.12] transition-all duration-300">
                     <div className="flex items-start gap-3">
                       <div className="w-5 h-5 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0 mt-0.5">
                         <Check className="w-2.5 h-2.5 text-primary-soft" />
@@ -616,17 +590,17 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════════
           3. FLAGSHIP PRODUCTS
       ═══════════════════════════════════════════════════════ */}
-      <section id="produtos" className="py-24 px-6 border-t border-white/[0.08]">
-        <div className="max-w-7xl mx-auto space-y-20">
+      <section id="produtos" className="py-14 sm:py-20 lg:py-24 px-5 sm:px-6 border-t border-white/[0.08]">
+        <div className="max-w-7xl mx-auto space-y-14 sm:space-y-20">
 
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6">
             <FadeIn>
-              <div className="space-y-3">
+              <div className="space-y-2.5 sm:space-y-3">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-medium text-white/60">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                   Produtos Flagship
                 </div>
-                <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.03em]">
+                <h2 className="text-[clamp(1.7rem,3vw,2.5rem)] font-bold leading-[1.12] tracking-[-0.03em]">
                   SaaS verticais com arquitetura autoral.
                 </h2>
               </div>
@@ -653,17 +627,17 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════════
           4. ECOSYSTEM
       ═══════════════════════════════════════════════════════ */}
-      <section id="solucoes" className="py-24 px-6 border-t border-white/[0.08]">
-        <div className="max-w-7xl mx-auto space-y-12">
+      <section id="solucoes" className="py-14 sm:py-20 lg:py-24 px-5 sm:px-6 border-t border-white/[0.08]">
+        <div className="max-w-7xl mx-auto space-y-10 sm:space-y-12">
 
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6">
             <FadeIn>
-              <div className="space-y-3">
+              <div className="space-y-2.5 sm:space-y-3">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-medium text-white/60">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                   Ecossistema
                 </div>
-                <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.03em]">
+                <h2 className="text-[clamp(1.7rem,3vw,2.5rem)] font-bold leading-[1.12] tracking-[-0.03em]">
                   Soluções integradas sob medida.
                 </h2>
               </div>
@@ -716,14 +690,10 @@ export default function HomePage() {
                       ) : (
                         /* Minimalist Software Preview Blueprint Frame */
                         <div className="h-full w-full p-4 flex flex-col justify-between font-mono text-[10px] bg-gradient-to-br from-[#141A29] to-[#0D111A]">
-                          {/* Window Bar */}
+                          {/* Header */}
                           <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
-                            <div className="flex items-center gap-1.5">
-                              <span className="w-2 h-2 rounded-full bg-[#FF5F57]" />
-                              <span className="w-2 h-2 rounded-full bg-[#FFBD2E]" />
-                              <span className="w-2 h-2 rounded-full bg-[#28C840]" />
-                            </div>
-                            <span className="text-white/40 text-[9px] uppercase tracking-wider">{p.name}</span>
+                            <span className="text-white/60 text-[10px] font-sans font-medium">{p.name}</span>
+                            <span className="text-white/30 text-[9px] uppercase tracking-wider">{p.category}</span>
                           </div>
 
                           {/* Center UI Preview Blueprint */}
@@ -756,11 +726,11 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════════
           5. ENGINEERING & INTERACTIVE ARCHITECTURE PIPELINE
       ═══════════════════════════════════════════════════════ */}
-      <section id="engenharia" className="py-28 px-6 border-t border-white/[0.08]">
-        <div className="max-w-7xl mx-auto space-y-16">
+      <section id="engenharia" className="py-14 sm:py-20 lg:py-28 px-5 sm:px-6 border-t border-white/[0.08]">
+        <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-5 space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            <div className="lg:col-span-5 space-y-4 sm:space-y-6">
               <FadeIn>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-medium text-white/60">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
@@ -768,7 +738,7 @@ export default function HomePage() {
                 </div>
               </FadeIn>
               <FadeIn delay={0.1}>
-                <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold leading-[1.12] tracking-[-0.03em]">
+                <h2 className="text-[clamp(1.7rem,3vw,2.5rem)] font-bold leading-[1.12] tracking-[-0.03em]">
                   Arquitetura que sustenta{" "}
                   <span className="text-white/50">operações de missão crítica.</span>
                 </h2>
@@ -790,21 +760,18 @@ export default function HomePage() {
             </div>
 
             <FadeIn className="lg:col-span-7" delay={0.2} direction="up" distance={28}>
-              <div className="rounded-2xl bg-[#14171F] border border-white/[0.07] overflow-hidden p-6 sm:p-7 space-y-6 shadow-xl">
-                <div className="flex items-center justify-between pb-4 border-b border-white/[0.06]">
+              <div className="rounded-2xl bg-[#14171F] border border-white/[0.07] overflow-hidden p-5 sm:p-7 space-y-5 sm:space-y-6 shadow-xl">
+                <div className="flex items-center justify-between pb-3.5 border-b border-white/[0.06]">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
-                    <span className="ml-2 text-[12px] text-white/50 font-normal">data-pipeline.topology.ts</span>
+                    <span className="text-[12px] text-white/60 font-mono">data-pipeline.topology.ts</span>
                   </div>
-                  <span className="text-[11px] font-medium text-primary-soft bg-primary/10 px-2.5 py-0.5 rounded-full border border-primary/20">
+                  <span className="text-[10.5px] sm:text-[11px] font-medium text-primary-soft bg-primary/10 px-2.5 py-0.5 rounded-full border border-primary/20">
                     Fluxo End-to-End
                   </span>
                 </div>
 
                 {/* Interactive Flow Pipeline Nodes */}
-                <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 relative">
+                <div className="grid grid-cols-1 sm:grid-cols-5 gap-2.5 sm:gap-3 relative">
                   {[
                     { step: "01", name: "Frontend", tech: "Next.js 15", tag: "Client" },
                     { step: "02", name: "API Gateway", tech: "Fastify / Nest", tag: "REST/WS" },
@@ -814,11 +781,11 @@ export default function HomePage() {
                   ].map((node) => (
                     <div
                       key={node.name}
-                      className="group p-3.5 rounded-xl bg-[#171A21] border border-white/[0.07] hover:bg-[#1C202B] hover:border-primary/40 transition-all duration-300 relative text-left"
+                      className="group p-3 rounded-xl bg-[#171A21] border border-white/[0.07] hover:bg-[#1C202B] hover:border-primary/40 transition-all duration-300 relative text-left"
                     >
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-[10px] text-white/40">{node.step}</span>
-                        <span className="text-[10px] text-primary-soft font-medium uppercase">{node.tag}</span>
+                      <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+                        <span className="text-[9.5px] text-white/40">{node.step}</span>
+                        <span className="text-[9.5px] text-primary-soft font-medium uppercase">{node.tag}</span>
                       </div>
                       <div className="text-[12px] font-semibold text-white/90 group-hover:text-white transition-colors">{node.name}</div>
                       <div className="text-[10px] text-white/50 mt-0.5">{node.tech}</div>
@@ -830,13 +797,14 @@ export default function HomePage() {
                 <StaggerList className="divide-y divide-white/[0.05] pt-2" stagger={0.05}>
                   {ARCHITECTURE.map((a, i) => (
                     <StaggerItem key={a.layer}>
-                      <div className="flex items-start gap-4 py-3 hover:bg-white/[0.03] transition-colors duration-200 px-2 rounded-lg">
-                        <div className="flex items-center gap-3 shrink-0 w-28">
-                          <span className="text-[11px] text-white/35 font-mono w-4 text-right">{String(i + 1).padStart(2, "0")}</span>
-                          <span className="px-1.5 py-0.5 rounded text-[10px] bg-white/[0.05] border border-white/[0.08] text-white/55 uppercase tracking-wider font-medium">{a.badge}</span>
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4 py-3 hover:bg-white/[0.03] transition-colors duration-200 px-2 rounded-lg">
+                        <div className="flex items-center gap-2.5 shrink-0 sm:w-28">
+                          <span className="text-[11px] text-white/35 font-mono w-4 text-left sm:text-right">{String(i + 1).padStart(2, "0")}</span>
+                          <span className="px-1.5 py-0.5 rounded text-[9.5px] sm:text-[10px] bg-white/[0.05] border border-white/[0.08] text-white/55 uppercase tracking-wider font-medium">{a.badge}</span>
+                          <span className="text-[13px] font-semibold text-white/90 sm:hidden">{a.layer}</span>
                         </div>
                         <div className="space-y-0.5 flex-1 min-w-0">
-                          <div className="text-[13px] font-medium text-white/85">{a.layer}</div>
+                          <div className="text-[13px] font-medium text-white/85 hidden sm:block">{a.layer}</div>
                           <div className="text-[12px] text-white/50 leading-relaxed">{a.detail}</div>
                         </div>
                       </div>
@@ -854,26 +822,26 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════════
           6. CTA
       ═══════════════════════════════════════════════════════ */}
-      <section className="py-28 px-6 border-t border-white/[0.08]">
+      <section className="py-16 sm:py-24 lg:py-28 px-5 sm:px-6 border-t border-white/[0.08]">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
-            <div className="relative rounded-3xl bg-[#14171F] border border-white/[0.07] p-10 sm:p-16 overflow-hidden text-center shadow-2xl">
-              <div className="relative space-y-6 max-w-2xl mx-auto">
+            <div className="relative rounded-2xl sm:rounded-3xl bg-[#14171F] border border-white/[0.07] p-7 sm:p-12 lg:p-16 overflow-hidden text-center shadow-2xl">
+              <div className="relative space-y-5 sm:space-y-6 max-w-2xl mx-auto">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-medium text-white/60">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                   Vamos Construir Juntos
                 </div>
-                <h2 className="text-[clamp(1.8rem,4vw,2.8rem)] font-bold leading-[1.1] tracking-[-0.03em]">
+                <h2 className="text-[clamp(1.7rem,4vw,2.8rem)] font-bold leading-[1.14] tracking-[-0.03em]">
                   Sua operação merece um sistema{" "}
                   <span className="text-white/50">feito para ela.</span>
                 </h2>
-                <p className="text-[15px] text-white/55 leading-relaxed">
+                <p className="text-[14px] sm:text-[15px] text-white/55 leading-relaxed">
                   Seja um SaaS vertical ou um sistema sob medida — a Vision Solutions projeta, desenvolve e sustenta a infraestrutura da sua operação.
                 </p>
-                <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 pt-2">
                   <Link
                     href="/contato"
-                    className="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-primary hover:bg-primary-dim text-white text-[13.5px] font-medium tracking-[-0.01em] transition-all duration-300 shadow-md shadow-primary/20"
+                    className="group flex sm:inline-flex items-center justify-center gap-3 px-6 py-3 rounded-full bg-primary hover:bg-primary-dim text-white text-[13.5px] font-medium tracking-[-0.01em] transition-all duration-300 shadow-md shadow-primary/20 w-full sm:w-auto"
                   >
                     <span>Falar com a Vision</span>
                     <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
@@ -882,7 +850,7 @@ export default function HomePage() {
                   </Link>
                   <Link
                     href="/produtos"
-                    className="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#171A21] border border-white/[0.1] text-white/80 text-[13.5px] font-medium hover:text-white hover:bg-white/[0.08] hover:border-white/[0.18] transition-all duration-300"
+                    className="group flex sm:inline-flex items-center justify-center gap-3 px-6 py-3 rounded-full bg-[#171A21] border border-white/[0.1] text-white/80 text-[13.5px] font-medium hover:text-white hover:bg-white/[0.08] hover:border-white/[0.18] transition-all duration-300 w-full sm:w-auto"
                   >
                     <span>Ver nossos produtos</span>
                     <span className="w-5 h-5 rounded-full bg-white/[0.08] flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">

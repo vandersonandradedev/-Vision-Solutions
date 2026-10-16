@@ -6,7 +6,7 @@ interface PageHeaderProps {
 
 export function PageHeader({ eyebrow, title, description }: PageHeaderProps) {
   return (
-    <header className="relative border-b border-white/[0.07] bg-[#08090D] px-6 pt-32 pb-16 sm:pt-36 sm:pb-20 overflow-hidden">
+    <header className="relative border-b border-white/[0.07] bg-[#08090D] px-5 sm:px-6 pt-24 sm:pt-32 md:pt-36 pb-12 sm:pb-16 md:pb-20 overflow-hidden">
       {/* Subtle directional gradient illumination */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[250px] bg-gradient-to-br from-primary/[0.07] via-transparent to-transparent pointer-events-none" />
       
@@ -20,16 +20,16 @@ export function PageHeader({ eyebrow, title, description }: PageHeaderProps) {
         }}
       />
 
-      <div className="max-w-7xl mx-auto relative space-y-5">
+      <div className="max-w-7xl mx-auto relative space-y-4 sm:space-y-5">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-medium text-white/60">
           <span className="w-1.5 h-1.5 rounded-full bg-primary-soft" />
           {eyebrow}
         </div>
-        <h1 className="text-[clamp(2.2rem,4vw,3.4rem)] font-bold text-white tracking-[-0.03em] leading-[1.1] max-w-3xl">
+        <h1 className="text-[clamp(1.9rem,5vw,3.2rem)] font-bold text-white tracking-[-0.03em] leading-[1.12] max-w-3xl">
           {title}
         </h1>
         {description && (
-          <p className="text-[15px] sm:text-[16px] text-white/55 leading-relaxed max-w-2xl">
+          <p className="text-[14px] sm:text-[16px] text-white/55 leading-relaxed max-w-2xl">
             {description}
           </p>
         )}

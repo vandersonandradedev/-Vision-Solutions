@@ -15,11 +15,11 @@ export default function PrivacidadePage() {
         title="Política de Privacidade"
         description="Diretrizes gerais de privacidade, governança e proteção de dados para produtos e ecossistemas Vision Solutions."
       />
-      <section className="px-5 py-16 sm:px-6 xl:px-0">
-        <div className="mx-auto max-w-editorial space-y-8">
+      <section className="px-5 sm:px-6 py-10 sm:py-16">
+        <div className="mx-auto max-w-editorial space-y-6 sm:space-y-8">
           
           {/* Note Banner */}
-          <div className="rounded-xl border border-primary/20 bg-primary/[0.05] p-5 flex items-start gap-3.5">
+          <div className="rounded-xl border border-primary/20 bg-primary/[0.05] p-4 sm:p-5 flex items-start gap-3.5">
             <Shield className="w-5 h-5 text-primary shrink-0 mt-0.5" />
             <div className="text-[13px] text-white/70 leading-relaxed">
               <strong className="text-white font-semibold">Isolamento Arquitetural:</strong> Esta política descreve o padrão de isolamento lógico e segurança física aplicado aos nossos SaaS verticais e sistemas sob medida. Cada contrato corporativo possui cláusulas de confidencialidade e SLA de conformidade com a LGPD.
@@ -27,7 +27,7 @@ export default function PrivacidadePage() {
           </div>
 
           {/* Main Card */}
-          <div className="rounded-2xl border border-white/[0.07] bg-[#14171F] p-8 sm:p-10 space-y-8 text-[14px] text-white/65 leading-relaxed shadow-xl">
+          <div className="rounded-2xl border border-white/[0.07] bg-[#14171F] p-5 sm:p-8 lg:p-10 space-y-6 sm:space-y-8 text-[14px] text-white/65 leading-relaxed shadow-xl">
             
             <div className="space-y-3 pb-6 border-b border-white/[0.06]">
               <div className="flex items-center gap-2 text-white font-semibold text-[16px]">

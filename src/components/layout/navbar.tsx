@@ -90,13 +90,14 @@ export function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Toggle */}
+          {/* Mobile Toggle Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-white/50 hover:text-white rounded-lg hover:bg-white/[0.06] transition-colors"
+            className="md:hidden w-10 h-10 rounded-xl border border-white/[0.08] bg-white/[0.03] flex items-center justify-center text-white/70 hover:text-white hover:bg-white/[0.06] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={mobileOpen}
           >
-            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+            {mobileOpen ? <X size={19} /> : <Menu size={19} />}
           </button>
         </div>
       </div>
@@ -108,46 +109,54 @@ export function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="md:hidden overflow-hidden border-t border-white/[0.08] bg-[#08090D]/98 backdrop-blur-2xl"
+            transition={{ duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
+            className="md:hidden overflow-hidden border-b border-white/[0.08] bg-[#08090D]/95 backdrop-blur-2xl"
           >
-            <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1">
+            <div className="max-w-7xl mx-auto px-5 py-5 flex flex-col gap-1.5">
               {NAV_LINKS.map((link, i) => {
                 const isActive = pathname === link.href;
                 return (
                   <motion.div
                     key={link.href}
-                    initial={{ opacity: 0, x: -12 }}
+                    initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05, duration: 0.3 }}
+                    transition={{ delay: i * 0.04, duration: 0.25 }}
                   >
                     <Link
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
-                      className={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                      className={`flex items-center justify-between px-4 py-3 rounded-xl text-[14.5px] font-medium transition-all ${
                         isActive
-                          ? "text-white bg-white/[0.06]"
-                          : "text-white/50 hover:text-white hover:bg-white/[0.04]"
+                          ? "text-white bg-white/[0.08] font-semibold"
+                          : "text-white/60 hover:text-white hover:bg-white/[0.04]"
                       }`}
                     >
-                      {link.label}
+                      <span>{link.label}</span>
+                      {isActive ? (
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      ) : (
+                        <ArrowUpRight className="w-4 h-4 text-white/20" />
+                      )}
                     </Link>
                   </motion.div>
                 );
               })}
+
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.25, duration: 0.3 }}
-                className="pt-3 border-t border-white/[0.06] mt-2"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.22, duration: 0.3 }}
+                className="pt-4 border-t border-white/[0.06] mt-2 space-y-2.5"
               >
                 <Link
                   href="/contato"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-lg bg-white text-[#08090D] text-sm font-semibold"
+                  className="group flex items-center justify-center gap-2.5 w-full py-3 px-5 rounded-full bg-primary hover:bg-primary-dim text-white text-[14px] font-medium shadow-lg shadow-primary/25 transition-all"
                 >
-                  Falar com a Vision
-                  <ArrowUpRight className="w-4 h-4" />
+                  <span>Falar com a Vision</span>
+                  <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center transition-transform group-hover:translate-x-0.5">
+                    <ArrowUpRight className="w-3 h-3 text-white" />
+                  </span>
                 </Link>
               </motion.div>
             </div>

@@ -3,64 +3,69 @@ import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 
 const PRODUCTS = [
   { label: "TorqueOS", sub: "ERP Automotivo", href: "/produtos" },
-  { label: "BarberCRM", sub: "Gestão para Barbearias", href: "/produtos" },
-  { label: "Retail-OS", sub: "ERP Varejo & Comércio", href: "/produtos" },
-  { label: "MesaGo", sub: "Restaurantes & Gastronomia", href: "/produtos" },
+  { label: "BarberCRM", sub: "Gestão Barbearias", href: "/produtos" },
+  { label: "Retail-OS", sub: "Varejo & Comércio", href: "/produtos" },
+  { label: "MesaGo", sub: "Restaurantes", href: "/produtos" },
 ];
 
 const COMPANY = [
   { label: "Soluções", href: "/servicos" },
   { label: "Engenharia", href: "/tecnologia" },
   { label: "Sobre nós", href: "/sobre" },
-  { label: "Contato", href: "/contato" },
+  { label: "Falar com a Vision", href: "/contato" },
 ];
 
 const LEGAL = [
   { label: "Privacidade", href: "/privacidade" },
-  { label: "Termos de uso", href: "/termos" },
+  { label: "Termos", href: "/termos" },
 ];
 
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/[0.08] bg-[#08090D]">
-      {/* Main Footer Grid */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+    <footer className="border-t border-white/[0.08] bg-[#08090D] text-white">
+      {/* Main Container */}
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 py-10 sm:py-14 lg:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 lg:gap-12">
 
           {/* Brand Column */}
-          <div className="md:col-span-4 space-y-6">
-            <Link href="/" className="inline-flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center shrink-0">
-                <span className="text-[#08090D] font-black text-xs tracking-tight font-mono">VS</span>
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="text-[11px] font-bold tracking-[0.15em] text-white uppercase">Vision</span>
-                <span className="text-[9px] tracking-[0.2em] text-white/40 uppercase font-medium">Solutions</span>
-              </div>
-            </Link>
+          <div className="md:col-span-4 space-y-4 sm:space-y-5">
+            <div className="flex items-center justify-between sm:justify-start gap-4">
+              <Link href="/" className="inline-flex items-center gap-2.5 group">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                  <span className="text-[#08090D] font-black text-[11px] sm:text-xs tracking-tight font-mono">VS</span>
+                </div>
+                <div className="flex flex-col leading-none">
+                  <span className="text-[11px] font-bold tracking-[0.15em] text-white uppercase">Vision</span>
+                  <span className="text-[9px] tracking-[0.2em] text-white/40 uppercase font-medium">Solutions</span>
+                </div>
+              </Link>
 
-            <p className="text-[13px] text-white/40 leading-relaxed max-w-xs">
-              Construímos SaaS verticais e sistemas sob medida para operações que software genérico não atende.
-            </p>
-
-            {/* Status Indicator */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.07]">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-              </span>
-              <span className="text-[11px] text-white/50 font-mono">Todos os sistemas operacionais</span>
+              {/* Status Indicator (visible on mobile in top header) */}
+              <div className="inline-flex sm:hidden items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.07]">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                <span className="text-[10px] text-white/60">Operação Ativa</span>
+              </div>
             </div>
 
-            {/* Socials */}
-            <div className="flex items-center gap-3">
+            <p className="text-[13px] text-white/50 leading-relaxed max-w-sm">
+              SaaS verticais e engenharia de software sob medida para empresas que já superaram sistemas genéricos.
+            </p>
+
+            {/* Desktop Status Indicator */}
+            <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.07]">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span className="text-[11px] text-white/60">Operação e clusters em produção</span>
+            </div>
+
+            {/* Social Icons */}
+            <div className="flex items-center gap-2.5 pt-1">
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.07] flex items-center justify-center text-white/40 hover:text-white hover:bg-white/[0.08] transition-all"
+                className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.07] flex items-center justify-center text-white/50 hover:text-white hover:bg-white/[0.08] transition-all"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-3.5 h-3.5" />
@@ -69,14 +74,14 @@ export function Footer() {
                 href="https://github.com/VandinDev221"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.07] flex items-center justify-center text-white/40 hover:text-white hover:bg-white/[0.08] transition-all"
+                className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.07] flex items-center justify-center text-white/50 hover:text-white hover:bg-white/[0.08] transition-all"
                 aria-label="GitHub"
               >
                 <Github className="w-3.5 h-3.5" />
               </a>
               <a
                 href="mailto:contato@visionsolutions.com.br"
-                className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.07] flex items-center justify-center text-white/40 hover:text-white hover:bg-white/[0.08] transition-all"
+                className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.07] flex items-center justify-center text-white/50 hover:text-white hover:bg-white/[0.08] transition-all"
                 aria-label="Email"
               >
                 <Mail className="w-3.5 h-3.5" />
@@ -84,78 +89,82 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Products Column */}
-          <div className="md:col-span-4 space-y-4">
-            <p className="text-[11px] font-medium text-white/30 uppercase tracking-[0.15em]">Produtos</p>
-            <ul className="space-y-3">
-              {PRODUCTS.map((p) => (
-                <li key={p.label}>
-                  <Link
-                    href={p.href}
-                    className="group flex items-start gap-3"
-                  >
-                    <div className="mt-0.5 w-1 h-1 rounded-full bg-white/20 group-hover:bg-white/60 transition-colors shrink-0 mt-1.5" />
-                    <div>
-                      <span className="text-[13px] text-white/60 group-hover:text-white/90 transition-colors font-medium leading-none">
-                        {p.label}
-                      </span>
-                      <span className="block text-[11px] text-white/25 mt-0.5">{p.sub}</span>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company Column */}
-          <div className="md:col-span-2 space-y-4">
-            <p className="text-[11px] font-medium text-white/30 uppercase tracking-[0.15em]">Empresa</p>
-            <ul className="space-y-2.5">
-              {COMPANY.map((c) => (
-                <li key={c.label}>
-                  <Link
-                    href={c.href}
-                    className="text-[13px] text-white/50 hover:text-white/90 transition-colors"
-                  >
-                    {c.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* CTA Column */}
-          <div className="md:col-span-2 space-y-4">
-            <p className="text-[11px] font-medium text-white/30 uppercase tracking-[0.15em]">Iniciar projeto</p>
+          {/* Links Section: 2 Columns on Mobile, spans 8 cols on desktop */}
+          <div className="md:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8 pt-4 sm:pt-0 border-t sm:border-t-0 border-white/[0.06]">
+            
+            {/* Products Column */}
             <div className="space-y-3">
-              <p className="text-[12px] text-white/40 leading-relaxed">
-                Tem uma ideia ou processo que precisa de software?
+              <p className="text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em]">
+                Produtos SaaS
               </p>
-              <Link
-                href="/contato"
-                className="inline-flex items-center gap-1.5 text-[12px] text-white font-medium hover:text-white/80 transition-colors group"
-              >
-                Falar com a Vision
-                <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </Link>
+              <ul className="space-y-2">
+                {PRODUCTS.map((p) => (
+                  <li key={p.label}>
+                    <Link
+                      href={p.href}
+                      className="group block text-[13px] text-white/70 hover:text-white transition-colors"
+                    >
+                      <span className="font-medium group-hover:text-white">{p.label}</span>
+                      <span className="block text-[11px] text-white/40 leading-none mt-0.5">{p.sub}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
+
+            {/* Company Column */}
+            <div className="space-y-3">
+              <p className="text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em]">
+                Navegação
+              </p>
+              <ul className="space-y-2.5">
+                {COMPANY.map((c) => (
+                  <li key={c.label}>
+                    <Link
+                      href={c.href}
+                      className="block text-[13px] text-white/70 hover:text-white transition-colors font-medium"
+                    >
+                      {c.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Direct Contact Column */}
+            <div className="col-span-2 sm:col-span-1 space-y-3 pt-3 sm:pt-0 border-t sm:border-t-0 border-white/[0.06]">
+              <p className="text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em]">
+                Contato
+              </p>
+              <div className="space-y-2 text-[12px] text-white/55 leading-relaxed">
+                <p>Precisa de um sistema sob medida?</p>
+                <Link
+                  href="/contato"
+                  className="inline-flex items-center gap-1.5 text-[12px] font-medium text-primary-soft hover:text-white transition-colors group"
+                >
+                  <span>Iniciar conversa</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
+              </div>
+            </div>
+
           </div>
 
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/[0.05] bg-white/[0.01]">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span className="text-[11px] text-white/25 font-mono">
-            © {year} Vision Solutions — Software House & SaaS Studio
+      <div className="border-t border-white/[0.06] bg-black/30">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          <span className="text-[11px] text-white/40">
+            © {year} Vision Solutions. Todos os direitos reservados.
           </span>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-4">
             {LEGAL.map((l) => (
               <Link
                 key={l.label}
                 href={l.href}
-                className="text-[11px] text-white/25 hover:text-white/50 transition-colors"
+                className="text-[11px] text-white/40 hover:text-white/75 transition-colors"
               >
                 {l.label}
               </Link>

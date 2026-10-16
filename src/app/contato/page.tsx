@@ -18,8 +18,8 @@ export default function ContatoPage() {
         description="Conte sobre o processo que hoje não cabe em planilhas ou softwares de prateleira. Você fala diretamente com arquitetos de software, sem intermediários comerciais."
       />
 
-      <section className="px-5 py-16 sm:px-6 xl:px-0">
-        <div className="mx-auto grid max-w-editorial grid-cols-1 gap-12 lg:grid-cols-12 items-start">
+      <section className="px-5 sm:px-6 py-10 sm:py-16">
+        <div className="mx-auto grid max-w-editorial grid-cols-1 gap-8 sm:gap-12 lg:grid-cols-12 items-start">
           
           {/* Main Form Area */}
           <div className="lg:col-span-7">

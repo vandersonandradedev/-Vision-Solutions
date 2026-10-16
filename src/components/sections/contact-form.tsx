@@ -77,7 +77,7 @@ export function ContactForm() {
         <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <button
             type="submit"
-            className="group inline-flex items-center justify-center gap-3 rounded-full bg-primary px-6 py-3 text-[13.5px] font-medium text-white shadow-lg transition-all duration-300 hover:bg-primary-dim focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            className="group flex sm:inline-flex items-center justify-center gap-3 rounded-full bg-primary px-6 py-3 text-[13.5px] font-medium text-white shadow-lg transition-all duration-300 hover:bg-primary-dim focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary w-full sm:w-auto"
           >
             <span>Enviar mensagem direta</span>
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 transition-transform duration-200 group-hover:translate-x-0.5">
