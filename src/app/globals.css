@@ -85,3 +85,13 @@ html:not(.js) .no-js-fallback {
   display: block;
 }
 
+/* Prevent mobile browser (iOS Safari / WebKit) auto-zoom on input focus */
+@media screen and (max-width: 767px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+

@@ -42,7 +42,7 @@ export function ContactForm() {
             placeholder="Como podemos te chamar?"
             value={name}
             onChange={(event) => setName(event.target.value)}
-            className="mt-2 w-full rounded-lg border border-white/[0.08] bg-[#0D1017] px-4 py-3 text-[14px] text-white placeholder:text-white/25 outline-none transition-all duration-200 focus-visible:border-primary/80 focus-visible:ring-1 focus-visible:ring-primary/50"
+            className="mt-2 w-full rounded-lg border border-white/[0.08] bg-[#0D1017] px-4 py-3 text-[16px] sm:text-[14px] text-white placeholder:text-white/25 outline-none transition-all duration-200 focus-visible:border-primary/80 focus-visible:ring-1 focus-visible:ring-primary/50"
           />
         </div>
 
@@ -55,7 +55,7 @@ export function ContactForm() {
             placeholder="Nome da sua empresa ou projeto"
             value={company}
             onChange={(event) => setCompany(event.target.value)}
-            className="mt-2 w-full rounded-lg border border-white/[0.08] bg-[#0D1017] px-4 py-3 text-[14px] text-white placeholder:text-white/25 outline-none transition-all duration-200 focus-visible:border-primary/80 focus-visible:ring-1 focus-visible:ring-primary/50"
+            className="mt-2 w-full rounded-lg border border-white/[0.08] bg-[#0D1017] px-4 py-3 text-[16px] sm:text-[14px] text-white placeholder:text-white/25 outline-none transition-all duration-200 focus-visible:border-primary/80 focus-visible:ring-1 focus-visible:ring-primary/50"
           />
         </div>
 
@@ -70,7 +70,7 @@ export function ContactForm() {
             placeholder="Descreva o fluxo atual, gargalos com planilhas ou softwares genéricos, e o que a operação precisa..."
             value={message}
             onChange={(event) => setMessage(event.target.value)}
-            className="mt-2 w-full resize-none rounded-lg border border-white/[0.08] bg-[#0D1017] px-4 py-3 text-[14px] text-white placeholder:text-white/25 outline-none transition-all duration-200 focus-visible:border-primary/80 focus-visible:ring-1 focus-visible:ring-primary/50"
+            className="mt-2 w-full resize-none rounded-lg border border-white/[0.08] bg-[#0D1017] px-4 py-3 text-[16px] sm:text-[14px] text-white placeholder:text-white/25 outline-none transition-all duration-200 focus-visible:border-primary/80 focus-visible:ring-1 focus-visible:ring-primary/50"
           />
         </div>
 
